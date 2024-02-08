@@ -1,6 +1,6 @@
 import {LoginPage} from "pages/login";
-import {Network} from "pages/network";
-import {Portfolio} from "pages/portfolio";
+import {NetworkPage} from "pages/network";
+import {PortfolioPage} from "pages/portfolio";
 import {RegisterPage} from "pages/register";
 import {Route, Routes} from "react-router-dom";
 
@@ -14,9 +14,9 @@ export default function Routers({isAuth}: RouterProps) {
             <Routes>
                 {isAuth ? (
                     <>
-                        <Route path="/" element={<Portfolio />} />
-                        <Route path="/users/:userId" element={<Portfolio />} />
-                        <Route path="/network" element={<Network />} />
+                        <Route path="/" element={<PortfolioPage />} />
+                        <Route path="/users/:userId" element={<PortfolioPage />} />
+                        <Route path="/network" element={<NetworkPage />} />
                     </>
                 ) : (
                     <>

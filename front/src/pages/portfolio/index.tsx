@@ -1,11 +1,13 @@
 import {Header} from "components/Header";
+import { Portfolio } from "components/Portfolio";
 
-export function Portfolio() {
+
+export function PortfolioPage() {
 
     return (
         <>
             <Header />
-            <div>Portfolio Page</div>
+            <Portfolio />
         </>
     );
 }

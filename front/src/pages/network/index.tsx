@@ -1,10 +1,11 @@
 import {Header} from "components/Header";
+import { Network } from "components/Network";
 
-export function Network() {
+export function NetworkPage() {
     return (
         <>
             <Header />
-            <div>Network Page</div>
+            <Network />
         </>
     );
 }
