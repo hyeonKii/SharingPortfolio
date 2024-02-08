@@ -1,21 +1,22 @@
 import {post} from "api";
-import { DispatchContext } from "../App";
+import {DispatchContext} from "context/AuthContext";
 import {useState, useContext} from "react";
 import {Link, useNavigate} from "react-router-dom";
+import { toast } from "react-toastify";
 
 export function LoginForm() {
     const navigate = useNavigate();
     const dispatch = useContext(DispatchContext);
 
+    const [error, setError] = useState<string>("");
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
-    const [error, setError] = useState<string>("");
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const {
             target: {name, value},
         } = e;
-        if (name === email) {
+        if (name === "email") {
             setEmail(value);
             const vaildRegex =
                 /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -25,15 +26,15 @@ export function LoginForm() {
             } else {
                 setError("");
             }
+        }
 
-            if (name === password) {
-                setPassword(value);
+        if (name === "password") {
+            setPassword(value);
 
-                if (password.length < 8) {
-                    setError("비밀번호는 8자리 이상 입력해주세요");
-                } else {
-                    setError("");
-                }
+            if (password.length < 8) {
+                setError("비밀번호는 8자리 이상 입력해주세요");
+            } else {
+                setError("");
             }
         }
     };
@@ -55,13 +56,16 @@ export function LoginForm() {
             });
             navigate("/");
         } catch (error) {
-            if (error instanceof Error) alert(error.message);
+            if (error instanceof Error) {
+                console.log(error.message);
+            }
+            toast.error("로그인에 실패했습니다.")
         }
     };
 
     return (
         <form onSubmit={handleSubmit}>
-            <h1>로그인</h1>
+            <h1 className="form__title">로그인</h1>
             <div className="form__block">
                 <label htmlFor="email">이메일</label>
                 <input

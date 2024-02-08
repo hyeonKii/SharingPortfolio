@@ -1,6 +1,7 @@
 import {post} from "api";
 import {useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
+import {toast} from "react-toastify";
 
 export function RegisterForm() {
     const navigate = useNavigate();
@@ -59,7 +60,15 @@ export function RegisterForm() {
             }
         }
         //name
-        setName(value);
+        if (id === "name") {
+            setName(value);
+
+            if(value?.length < 2) {
+                setError("이름은 2글자 이상 입력해주세요.")
+            } else {
+                setError("")
+            }
+        }
     };
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -71,11 +80,12 @@ export function RegisterForm() {
                 password,
                 name,
             });
-
-            navigate;
+            toast.success("회원가입이 완료되었습니다");
+            navigate("/login");
         } catch (error) {
             if (error instanceof Error) {
-                console.log("회원가입에 실패했습니다", error);
+                toast.error("회원가입에 실패했습니다");
+                console.log(error);
             }
         }
     };
@@ -106,9 +116,19 @@ export function RegisterForm() {
             <div className="form__block">
                 <label htmlFor="confirmPassword">비밀번호 확인</label>
                 <input
-                    type="confirmPassword"
+                    type="password"
                     name="confirmPassword"
                     id="confirmPassword"
+                    required
+                    onChange={onChange}
+                />
+            </div>
+            <div className="form__block">
+                <label htmlFor="name">이름</label>
+                <input
+                    type="text"
+                    name="name"
+                    id="name"
                     required
                     onChange={onChange}
                 />

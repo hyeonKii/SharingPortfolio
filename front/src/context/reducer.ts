@@ -1,3 +1,4 @@
+
 export function loginReducer(userState: IUserState, action: IAction) {
     switch (action.type) {
         case "LOGIN_SUCCESS":
@@ -7,6 +8,7 @@ export function loginReducer(userState: IUserState, action: IAction) {
                 user: action.payload,
             };
         case "LOGOUT":
+            
             console.log("로그아웃 했습니다.");
             return {
                 ...userState,

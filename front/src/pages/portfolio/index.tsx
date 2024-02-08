@@ -1,3 +1,11 @@
+import {Header} from "components/Header";
+
 export function Portfolio() {
-    return <><div>Portfolio Page</div></>;
+
+    return (
+        <>
+            <Header />
+            <div>Portfolio Page</div>
+        </>
+    );
 }

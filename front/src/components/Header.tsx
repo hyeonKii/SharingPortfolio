@@ -1,4 +1,4 @@
-import { DispatchContext, UserStateContext } from "../App";
+import { DispatchContext, UserStateContext } from "context/AuthContext";
 import {useContext} from "react";
 import {Link, useNavigate} from "react-router-dom";
 
