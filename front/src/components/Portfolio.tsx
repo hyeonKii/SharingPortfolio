@@ -1,4 +1,5 @@
 import {get} from "api/index";
+// import {AxiosError} from "axios";
 import {UserStateContext} from "context/AuthContext";
 import {useContext, useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
@@ -13,15 +14,14 @@ export function Portfolio() {
     const [isFetched, setIsFetched] = useState<boolean>(false);
 
     const fetchedUser = async (ownerId: string) => {
-        const userData = await get("users", ownerId);
-
-        setUserInfo(userData);
         setIsFetched(true);
+        const userData = await get("users", ownerId);
+        setUserInfo(userData);
     };
 
     useEffect(() => {
         if (!userState.user) {
-            navigate("/login");
+            navigate("/login", {replace: true});
             return;
         }
 
