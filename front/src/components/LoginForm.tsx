@@ -43,10 +43,11 @@ export function LoginForm() {
         e.preventDefault();
 
         try {
-            const user = await post("user/login", {
+            const res = await post("user/login", {
                 email,
                 password,
             });
+            const user = res.data;
             const jwtToken = user.token;
             sessionStorage.setItem("userToken", jwtToken);
 

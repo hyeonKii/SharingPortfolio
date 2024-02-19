@@ -14,9 +14,13 @@ export function Portfolio() {
     const [isFetched, setIsFetched] = useState<boolean>(false);
 
     const fetchedUser = async (ownerId: string) => {
-        setIsFetched(true);
-        const userData = await get("users", ownerId);
+        // userToken이 없는 문제는 api 호출 문제였다.
+        // api 호출이 잘못되서 authorization 에 토큰이 제대로 적재되지 않았다.
+        // 그 이유는 추후에 알아볼 것
+        const res = await get("users", ownerId);
+        const userData = res.data;
         setUserInfo(userData);
+        setIsFetched(true);
     };
 
     useEffect(() => {
