@@ -2,6 +2,7 @@ import {get} from "api/index";
 import {UserStateContext} from "context/AuthContext";
 import {useContext, useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
+import User from "./user";
 
 export function Portfolio() {
     const navigate = useNavigate();
@@ -43,11 +44,13 @@ export function Portfolio() {
     if (!isFetched) {
         return "loading...";
     }
+
+
     return (
         <>
             <div className="portfolio">
                 <div className="portfolio__block">
-                    <div>User</div>
+                    <User userId={userInfo.id} isEditable={userInfo.id === userState.user?.id}/>
                 </div>
                 <div className="portfolio__block">
                     <div>Edu</div>

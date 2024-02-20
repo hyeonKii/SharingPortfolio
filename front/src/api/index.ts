@@ -25,62 +25,38 @@ const post = async (endpoint: string, userData: UserProps) => {
     return data;
 };
 
-// const put = async (endpoint: string, userData: UserProps) => {
-//     const {data} = await API.put(endpoint, userData);
-//     return data;
-// };
-
-// const del = async (endpoint: string, params = "") => {
-//     const {data} = await API.put(endpoint + "/" + params);
-//     return data;
-// };
-
-// export {get, post, put, del as delete};
-
-// const backendPortNumber = "5001";
-// const serverUrl =
-//     "http://" + window.location.hostname + ":" + backendPortNumber + "/";
-
-const serverUrl = import.meta.env.VITE_BASE_URL;
-
-// interface APIProps {
-//     endpoint: string;
-//     params?: string;
-//     data?: UserProps;
-// }
-
-// const get = async (endpoint: string, params = "") =>
-//     axios.get(serverUrl + endpoint + "/" + params, {
-//         headers: {
-//             Authorization: `Bearer ${sessionStorage.getItem("userToken")}`,
-//         },
-//     });
-
-// const post = async (endpoint: string, data: UserProps) => {
-//     const bodyData = JSON.stringify(data);
-//     return axios.post(serverUrl + endpoint, bodyData, {
-//         headers: {
-//             "Content-Type": "application/json",
-//             Authorization: `Bearer ${sessionStorage.getItem("userToken")}`,
-//         },
-//     });
-// };
-
-const put = async (endpoint: string, data: UserProps) => {
-    const bodyData = JSON.stringify(data);
-    return axios.put(serverUrl + endpoint, bodyData, {
+const put = async (endpoint: string, userData: UserProps) => {
+    const {data} = await API.put(endpoint, userData, {
         headers: {
-            "Content-Type": "application/json",
             Authorization: `Bearer ${sessionStorage.getItem("userToken")}`,
         },
     });
+    return data;
 };
 
-const del = async (endpoint: string, params = "") =>
-    axios.delete(serverUrl + endpoint + "/" + params, {
+const del = async (endpoint: string, params = "") => {
+    const {data} = await API.put(endpoint + "/" + params, {
         headers: {
             Authorization: `Bearer ${sessionStorage.getItem("userToken")}`,
         },
     });
+    return data;
+};
 
-export {get, post, put, del as delete};
+const upload = async (endpoint: string, params = "", file: FormData) => {
+    try {
+        const data = await API.post(endpoint + "/" + params, file);
+        return data;
+    } catch (e) {
+        console.log(e);
+    }
+};
+
+// const del = async (endpoint: string, params = "") =>
+//     axios.delete(serverUrl + endpoint + "/" + params, {
+//         headers: {
+//             Authorization: `Bearer ${sessionStorage.getItem("userToken")}`,
+//         },
+//     });
+
+export {get, post, put, del as delete, upload};
