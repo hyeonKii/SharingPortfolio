@@ -6,7 +6,7 @@ import UserCard from "./UserCard";
 
 
 export default function User({userId, isEditable}: OwnerProps) {
-    const [isEditing, setIsEditing] = useState<boolean>(false);
+    const [isEdit, setIsEdit] = useState<boolean>(false);
     const [user, setUser] = useState<UserProps>({});
 
     useEffect(() => {
@@ -15,16 +15,16 @@ export default function User({userId, isEditable}: OwnerProps) {
 
     return (
         <>
-            {isEditing ? (
+            {isEdit ? (
                 <UserEditForm
                     user={user}
-                    setIsEditing={setIsEditing}
+                    setIsEdit={setIsEdit}
                     setUser={setUser}
                 />
             ) : (
                 <UserCard
                     user={user}
-                    setIsEditing={setIsEditing}
+                    setIsEdit={setIsEdit}
                     isEditable={isEditable}
                 />
             )}

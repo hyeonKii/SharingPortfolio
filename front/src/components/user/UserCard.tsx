@@ -1,6 +1,6 @@
 export default function UserCard({
     user,
-    setIsEditing,
+    setIsEdit,
     isEditable,
 }: UserCardProps) {
     return (
@@ -18,7 +18,7 @@ export default function UserCard({
                     <div className="card__edit__block">
                         <button
                             className="card__edit__btn"
-                            onClick={() => setIsEditing(true)}
+                            onClick={() => setIsEdit(true)}
                         >
                             편집
                         </button>

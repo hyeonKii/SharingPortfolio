@@ -5,7 +5,7 @@ import AwardCard from "./AwardCard";
 export default function Award({award, setAwards, isEditable}: AwardProps) {
     const [isEdit, setIsEdit] = useState(false);
 
-    const toogleEdit = () => {
+    const toggleEdit = () => {
         setIsEdit((prev) => !prev);
     };
 
@@ -15,13 +15,13 @@ export default function Award({award, setAwards, isEditable}: AwardProps) {
                 <AwardEditForm
                     award={award}
                     setAwards={setAwards}
-                    setIsEdit={toogleEdit}
+                    setIsEdit={toggleEdit}
                 />
             ) : (
                 <AwardCard
                     award={award}
                     setAwards={setAwards}
-                    setIsEdit={toogleEdit}
+                    setIsEdit={toggleEdit}
                     isEditable={isEditable}
                 />
             )}

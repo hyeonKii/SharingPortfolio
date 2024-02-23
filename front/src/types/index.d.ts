@@ -26,13 +26,13 @@ interface OwnerProps {
 
 interface UserEditProps {
     user: UserProps | null;
-    setIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
+    setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
     setUser: React.Dispatch<React.SetStateAction<UserProps>>;
 }
 
 interface UserCardProps {
     user: UserProps | null;
-    setIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
+    setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
     isEditable: boolean;
 }
 

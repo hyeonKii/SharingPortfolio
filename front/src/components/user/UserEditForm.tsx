@@ -5,7 +5,7 @@ import {AxiosError} from "axios";
 
 export default function UserEditForm({
     user,
-    setIsEditing,
+    setIsEdit,
     setUser,
 }: UserEditProps) {
     const [name, setName] = useState(user?.name);
@@ -18,7 +18,7 @@ export default function UserEditForm({
     const [fileprevImage, setFileprevImage] = useState("");
     const setFilepreviewImage = (e: React.ChangeEvent<HTMLInputElement>) => {
         const files = e.target.files as FileList;
-        
+
         //test = blob:http://localhost:3005/2cc62be5-c0f9-472e-8b8b-3192b5df16c9
         console.log(URL.createObjectURL(files[0]));
 
@@ -55,7 +55,7 @@ export default function UserEditForm({
             setEmail(value);
         }
 
-        if (id === description) {
+        if (id === "description") {
             setDescription(value);
         }
     };
@@ -71,7 +71,7 @@ export default function UserEditForm({
                 profileImageFilename,
             });
             setUser(updatedUser);
-            setIsEditing(false);
+            setIsEdit((prev) => !prev);
         } catch (e) {
             if (e instanceof AxiosError) {
                 console.log(e.message);
@@ -114,6 +114,17 @@ export default function UserEditForm({
                     value={description}
                     onChange={onChange}
                 />
+                <div className="userEdit__btn__block">
+                    <button className="userEdit__btn" type="submit">
+                        확인
+                    </button>
+                    <button
+                        className="userEdit__btn__cancel"
+                        onClick={() => setIsEdit((prev) => !prev)}
+                    >
+                        취소
+                    </button>
+                </div>
             </form>
         </>
     );

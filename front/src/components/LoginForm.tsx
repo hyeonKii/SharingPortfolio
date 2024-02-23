@@ -30,8 +30,8 @@ export function LoginForm() {
 
         if (name === "password") {
             setPassword(value);
-
-            if (password.length < 8) {
+            
+            if (password.length < 7) {
                 setError("비밀번호는 8자리 이상 입력해주세요");
             } else {
                 setError("");
