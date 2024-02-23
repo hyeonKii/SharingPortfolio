@@ -19,6 +19,11 @@ interface IAction {
     payload?: UserProps | null;
 }
 
+interface OwnerProps {
+    userId: string | undefined;
+    isEditable: boolean;
+}
+
 interface UserEditProps {
     user: UserProps | null;
     setIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
@@ -29,4 +34,24 @@ interface UserCardProps {
     user: UserProps | null;
     setIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
     isEditable: boolean;
+}
+
+interface AwardContentsProps {
+    awardId?: string;
+    awardTitle: string;
+    awardDetail: string;
+}
+
+interface AwardProps {
+    award: AwardContentsProps;
+    setAwards: React.Dispatch<React.SetStateAction<AwardContentsProps[]>>
+    isEditable?: boolean;
+    setIsEdit?: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+interface AwardFixProps {
+    award: AwardContentsProps;
+    setAwards: React.Dispatch<React.SetStateAction<AwardContentsProps[]>>
+    isEditable?: boolean;
+    setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
 }

@@ -3,10 +3,7 @@ import {useEffect, useState} from "react";
 import UserEditForm from "./UserEditForm";
 import UserCard from "./UserCard";
 
-interface OwnerProps {
-    userId: string | undefined;
-    isEditable: boolean;
-}
+
 
 export default function User({userId, isEditable}: OwnerProps) {
     const [isEditing, setIsEditing] = useState<boolean>(false);

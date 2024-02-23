@@ -3,6 +3,8 @@ import {UserStateContext} from "context/AuthContext";
 import {useContext, useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import User from "./user";
+import Awards from "./award/Awards";
+
 
 export function Portfolio() {
     const navigate = useNavigate();
@@ -45,18 +47,23 @@ export function Portfolio() {
         return "loading...";
     }
 
-
     return (
         <>
             <div className="portfolio">
                 <div className="portfolio__block">
-                    <User userId={userInfo.id} isEditable={userInfo.id === userState.user?.id}/>
+                    <User
+                        userId={userInfo.id}
+                        isEditable={userInfo.id === userState.user?.id}
+                    />
                 </div>
                 <div className="portfolio__block">
                     <div>Edu</div>
                 </div>
                 <div className="portfolio__block">
-                    <div>Awards</div>
+                    <Awards
+                        userId={userInfo.id}
+                        isEditable={userInfo.id === userState.user?.id}
+                    />
                 </div>
                 <div className="portfolio__block">
                     <div>Projects</div>

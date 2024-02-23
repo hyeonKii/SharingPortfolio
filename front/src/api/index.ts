@@ -34,8 +34,8 @@ const put = async (endpoint: string, userData: UserProps) => {
     return data;
 };
 
-const del = async (endpoint: string, params = "") => {
-    const {data} = await API.put(endpoint + "/" + params, {
+const del = async (endpoint: string) => {
+    const {data} = await API.delete(endpoint, {
         headers: {
             Authorization: `Bearer ${sessionStorage.getItem("userToken")}`,
         },
@@ -59,4 +59,4 @@ const upload = async (endpoint: string, params = "", file: FormData) => {
 //         },
 //     });
 
-export {get, post, put, del as delete, upload};
+export {get, post, put, del, upload};
