@@ -1,27 +1,25 @@
 import {del} from "api/index";
 import {AxiosError} from "axios";
 
-interface AwardCardProps {
-    award: AwardContentsProps;
-    setAwards: React.Dispatch<React.SetStateAction<AwardContentsProps[]>>;
+interface EduCardProps {
+    edu: EducationContentsProps;
+    setEdu: React.Dispatch<React.SetStateAction<EducationContentsProps[]>>;
     setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
     isEditable: boolean;
 }
 
-export default function AwardCard({
-    award,
-    setAwards,
+export default function EducationCard({
+    edu,
+    setEdu,
     setIsEdit,
-    isEditable,
-}: AwardCardProps) {
+    isEditable
+}: EduCardProps) {
     const handleDelete = async () => {
         window.confirm("삭제하시겠습니까?");
         try {
-            await del(`award/${award.awardId}`);
-            setAwards((arr) => {
-                const newArr = arr.filter(
-                    (obj) => obj.awardId !== award.awardId
-                );
+            await del(`edu/${edu.eduId}`);
+            setEdu((arr) => {
+                const newArr = arr.filter((obj) => obj.eduId !== edu.eduId);
                 return newArr;
             });
         } catch (e) {
@@ -30,12 +28,13 @@ export default function AwardCard({
             }
         }
     };
+
     return (
-        <div className="awardCard__block">
-            <div className="awardTitle">{award.awardTitle}</div>
-            <div className="awardDetail">{award.awardDetail}</div>
+        <div className="eduCard__block">
+            <div className="eduSchool">{edu.school}</div>
+            <div className="eduDegree">{edu.major} ({edu.degree})</div>
             {isEditable && (
-                <div className="award__btn__block">
+                <div className="edu__btn__block">
                     <button onClick={() => setIsEdit((prev) => !prev)}>
                         편집
                     </button>

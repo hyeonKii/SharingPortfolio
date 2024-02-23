@@ -4,7 +4,7 @@ import {useContext, useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import User from "./user";
 import Awards from "./award/Awards";
-
+import Educations from "./education/Educations";
 
 export function Portfolio() {
     const navigate = useNavigate();
@@ -57,7 +57,10 @@ export function Portfolio() {
                     />
                 </div>
                 <div className="portfolio__block">
-                    <div>Edu</div>
+                    <Educations
+                        userId={userInfo.id as string}
+                        isEditable={userInfo.id === userState.user?.id}
+                    />
                 </div>
                 <div className="portfolio__block">
                     <Awards

@@ -67,12 +67,12 @@ export default function AwardAddForm({
                     />
                 </div>
 
-                <div className="AwardAdd__btn__block">
-                    <button className="AwardAdd__btn" type="submit">
+                <div className="awardAdd__btn__block">
+                    <button className="awardAdd__btn" type="submit">
                         확인
                     </button>
                     <button
-                        className="AwardAdd__btn__cancel"
+                        className="awardAdd__btn__cancel"
                         onClick={() => setIsAdd((prev) => !prev)}
                     >
                         취소

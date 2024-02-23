@@ -47,3 +47,16 @@ interface AwardProps {
     setAwards: React.Dispatch<React.SetStateAction<AwardContentsProps[]>>
     isEditable: boolean;
 }
+
+interface EducationContentsProps {
+    eduId?: string;
+    school: string;
+    major: string;
+    degree: string;
+}
+
+interface EducationProps {
+    edu: EducationContentsProps;
+    setEdu: React.Dispatch<React.SetStateAction<EducationContentsProps[]>>
+    isEditable: boolean;
+}
