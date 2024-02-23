@@ -1,14 +1,21 @@
 import {del} from "api/index";
 import {AxiosError} from "axios";
 
+interface AwardCardProps {
+    award: AwardContentsProps;
+    setAwards: React.Dispatch<React.SetStateAction<AwardContentsProps[]>>;
+    setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
+    isEditable: boolean;
+}
+
 export default function AwardCard({
     award,
     setAwards,
     setIsEdit,
     isEditable,
-}: AwardFixProps) {
+}: AwardCardProps) {
     const handleDelete = async () => {
-        window.confirm("삭제하시겠습니까?")
+        window.confirm("삭제하시겠습니까?");
         try {
             await del(`award/${award.awardId}`);
             setAwards((arr) => {

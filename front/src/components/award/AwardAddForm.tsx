@@ -3,7 +3,7 @@ import {AxiosError} from "axios";
 import {Dispatch, SetStateAction, useState} from "react";
 
 interface AwardAddProps {
-    userId: string | undefined;
+    userId: string;
     setAwards: React.Dispatch<React.SetStateAction<AwardContentsProps[]>>;
     setIsAdd: Dispatch<SetStateAction<boolean>>;
 }

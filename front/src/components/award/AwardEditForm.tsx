@@ -2,6 +2,12 @@ import {put} from "api/index";
 import {AxiosError} from "axios";
 import {useState} from "react";
 
+interface AwardFixProps {
+    award: AwardContentsProps;
+    setAwards: React.Dispatch<React.SetStateAction<AwardContentsProps[]>>
+    setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
 export default function AwardEditForm({
     award,
     setAwards,
@@ -54,7 +60,7 @@ export default function AwardEditForm({
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form className="award__EditForm" onSubmit={handleSubmit}>
                 <div className="awardEditTitle">
                     <input
                         type="text"

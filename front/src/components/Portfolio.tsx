@@ -52,7 +52,7 @@ export function Portfolio() {
             <div className="portfolio">
                 <div className="portfolio__block">
                     <User
-                        userId={userInfo.id}
+                        userId={userInfo.id as string}
                         isEditable={userInfo.id === userState.user?.id}
                     />
                 </div>
@@ -61,7 +61,7 @@ export function Portfolio() {
                 </div>
                 <div className="portfolio__block">
                     <Awards
-                        userId={userInfo.id}
+                        userId={userInfo.id as string}
                         isEditable={userInfo.id === userState.user?.id}
                     />
                 </div>

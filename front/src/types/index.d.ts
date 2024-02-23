@@ -20,7 +20,7 @@ interface IAction {
 }
 
 interface OwnerProps {
-    userId: string | undefined;
+    userId: string;
     isEditable: boolean;
 }
 
@@ -45,13 +45,5 @@ interface AwardContentsProps {
 interface AwardProps {
     award: AwardContentsProps;
     setAwards: React.Dispatch<React.SetStateAction<AwardContentsProps[]>>
-    isEditable?: boolean;
-    setIsEdit?: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-interface AwardFixProps {
-    award: AwardContentsProps;
-    setAwards: React.Dispatch<React.SetStateAction<AwardContentsProps[]>>
-    isEditable?: boolean;
-    setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
+    isEditable: boolean;
 }
