@@ -31,7 +31,7 @@ export default function CertiAddForm({
             certiDate: date,
         }));
     };
-    
+
     //전체 form 설정
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const {

@@ -81,7 +81,7 @@ export default function AwardEditForm({
                 </div>
 
                 <div className="awardEdit__btn__block">
-                    <button className="AwardEdit__btn" type="submit">
+                    <button className="awardEdit__btn" type="submit">
                         확인
                     </button>
                     <button

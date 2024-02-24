@@ -73,3 +73,17 @@ interface CertificationProps {
     setCertificates: React.Dispatch<React.SetStateAction<CertiContentsProps[]>>
     isEditable: boolean;
 }
+
+interface ProjectContentsProps {
+    projId?: string;
+    projTitle: string;
+    projDetail: string;
+    fromDate: string;
+    toDate: string;
+}
+
+interface ProjectProps {
+    project: ProjectContentsProps;
+    setProjects: React.Dispatch<React.SetStateAction<ProjectContentsProps[]>>
+    isEditable: boolean;
+}

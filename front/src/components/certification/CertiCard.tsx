@@ -17,7 +17,7 @@ export default function CertiCard({
     const handleDelete = async () => {
         window.confirm("삭제하시겠습니까?");
         try {
-            await del(`award/${certificate.certiId}`);
+            await del(`certi/${certificate.certiId}`);
             setCertificates((arr) => {
                 const newArr = arr.filter(
                     (obj) => obj.certiId !== certificate.certiId

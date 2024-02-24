@@ -104,7 +104,7 @@ export default function CertiEditForm({
                 </div>
 
                 <div className="certiEdit__btn__block">
-                    <button className="AwardEdit__btn" type="submit">
+                    <button className="certiEdit__btn" type="submit">
                         확인
                     </button>
                     <button

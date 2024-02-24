@@ -8,9 +8,10 @@ export const DateInventory = () => {
     };
 
     const options = {
-        title: "자격증 취득일",
+        title: "날짜/기간 설정",
         autoHide: true,
-        todayBtn: false,
+        todayBtn: true,
+        todayBtnText: "today",
         clearBtn: true,
         clearBtnText: "Clear",
         maxDate: new Date("2030-01-01"),
