@@ -80,12 +80,12 @@ export default function AwardEditForm({
                     />
                 </div>
 
-                <div className="AwardEdit__btn__block">
+                <div className="awardEdit__btn__block">
                     <button className="AwardEdit__btn" type="submit">
                         확인
                     </button>
                     <button
-                        className="AwardEdit__btn__cancel"
+                        className="awardEdit__btn__cancel"
                         onClick={() => setIsEdit((prev) => !prev)}
                     >
                         취소

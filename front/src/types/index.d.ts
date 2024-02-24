@@ -60,3 +60,16 @@ interface EducationProps {
     setEdu: React.Dispatch<React.SetStateAction<EducationContentsProps[]>>
     isEditable: boolean;
 }
+
+interface CertiContentsProps {
+    certiId?: string;
+    certiTitle: string;
+    certiDetail: string;
+    certiDate: string;
+}
+
+interface CertificationProps {
+    certificate: CertiContentsProps;
+    setCertificates: React.Dispatch<React.SetStateAction<CertiContentsProps[]>>
+    isEditable: boolean;
+}

@@ -5,6 +5,7 @@ import {useNavigate, useParams} from "react-router-dom";
 import User from "./user";
 import Awards from "./award/Awards";
 import Educations from "./education/Educations";
+import Certifications from "./certification/Certifications";
 
 export function Portfolio() {
     const navigate = useNavigate();
@@ -69,10 +70,13 @@ export function Portfolio() {
                     />
                 </div>
                 <div className="portfolio__block">
-                    <div>Projects</div>
+                    <Certifications
+                        userId={userInfo.id as string}
+                        isEditable={userInfo.id === userState.user?.id}
+                    />
                 </div>
                 <div className="portfolio__block">
-                    <div>Certifications</div>
+                    <div>프로젝트 이력</div>
                 </div>
             </div>
         </>

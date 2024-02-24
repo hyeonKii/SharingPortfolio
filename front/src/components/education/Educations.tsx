@@ -15,8 +15,8 @@ export default function Educations({userId, isEditable}: OwnerProps) {
 
     return (
         <>
-            <div className="education__card">
-                <div className="education__tile">학력</div>
+            <div className="card__block">
+                <div className="card__title">학력</div>
                 {educations.map((education) => (
                     <Education
                         key={education.eduId}
@@ -33,9 +33,9 @@ export default function Educations({userId, isEditable}: OwnerProps) {
                     />
                 )}
                 {isEditable && (
-                    <div className="education__editBtn__block">
+                    <div className="educations__editBtn__block">
                         <button
-                            className="education__edit__btn"
+                            className="educations__edit__btn"
                             onClick={() => setIsAdd(true)}
                         >
                             +
