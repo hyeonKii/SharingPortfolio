@@ -25,6 +25,8 @@ export default function ProjectAddForm({
 
     //date 설정
     //이슈 존재 = date만 설정하거나 date range도 같이 설정해줄 수 있는 라이브러리 찾아야 한다.
+    //이슈 존재 = 현재 시각 9시 42분 기준으로 2024-02-25T00:42:00.453Z 로 데이터 적재
+    // UTC 날짜를 우리나라 기준으로 바꾸어 줘야 함.
     const {options, show, onClose} = DateInventory();
 
     const onDateChange = (date: Date, name: string) => {
@@ -82,22 +84,24 @@ export default function ProjectAddForm({
                         onChange={onChange}
                     />
                 </div>
-                <div className="projectAddFromDate">
+                <div className="projectAddFromDate" id="1">
                     <DatePicker
+                        key="fromDate"
                         options={options as IOptions}
                         show={show}
                         onChange={(date) => onDateChange(date, "fromDate")}
                         setShow={onClose}
                     />
                 </div>
-                {/* <div className="projectAddToDate">
+                <div className="projectAddToDate" id="2">
                     <DatePicker
+                        key="toDate"
                         options={options as IOptions}
                         show={show}
                         onChange={(date) => onDateChange(date, "toDate")}
                         setShow={onClose}
                     />
-                </div> */}
+                </div>
 
                 <div className="projectAdd__btn__block">
                     <button className="projectAdd__btn" type="submit">

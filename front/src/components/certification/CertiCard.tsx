@@ -30,6 +30,10 @@ export default function CertiCard({
             }
         }
     };
+
+    //테스트용
+    console.log(certificate.certiDate);
+
     return (
         <div className="certiCard__block">
             <div className="certiTitle">{certificate.certiTitle}</div>

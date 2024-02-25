@@ -11,13 +11,13 @@ export const DateInventory = () => {
         title: "날짜/기간 설정",
         autoHide: true,
         todayBtn: true,
-        todayBtnText: "today",
+        todayBtnText: "Today",
         clearBtn: true,
         clearBtnText: "Clear",
         maxDate: new Date("2030-01-01"),
         minDate: new Date("1950-01-01"),
         theme: {
-            background: "bg-gray-700 gray:bg-gray-800",
+            background: "bg-gray-700 dark:bg-gray-800",
             todayBtn: "",
             clearBtn: "",
             icons: "",
@@ -34,9 +34,9 @@ export const DateInventory = () => {
         },
         datepickerClassNames: "top-12",
         defaultDate: new Date(),
-        language: "en",
+        language: "ko",
         disabledDates: [],
-        weekDays: ["월", "화", "수", "목", "금", "토", "일"],
+        weekDays: ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
         inputNameProp: "date",
         inputIdProp: "date",
         inputPlaceholderProp: "Select Date",
@@ -46,5 +46,6 @@ export const DateInventory = () => {
             year: "numeric",
         },
     };
-    return {options, show, onClose};
+
+    return {show, onClose, options};
 };
