@@ -1,8 +1,10 @@
-export default function UserCard({
-    user,
-    setIsEdit,
-    isEditable,
-}: UserCardProps) {
+import {UserStateContext} from "context/AuthContext";
+import {useContext} from "react";
+import {Link} from "react-router-dom";
+
+export default function UserCard({user, setIsEdit, isEditable}: UserCardProps) {
+    const userState = useContext(UserStateContext);
+
     return (
         <>
             <div className="card__block">
@@ -23,6 +25,11 @@ export default function UserCard({
                             편집
                         </button>
                     </div>
+                )}
+                {user?.id === userState?.user?.id ? (
+                    <Link to={`/users/${user?.id}`}>내 포트폴리오 이동</Link>
+                ) : (
+                    <Link to={`/users/${user?.id}`}>포트폴리오 탐색하기</Link>
                 )}
             </div>
         </>
