@@ -5,7 +5,6 @@ import {useState, useContext} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 
-
 export function LoginForm() {
     const navigate = useNavigate();
     const dispatch = useContext(DispatchContext);
@@ -56,7 +55,7 @@ export function LoginForm() {
                 type: "LOGIN_SUCCESS",
                 payload: user,
             });
-            toast.success(`${user.name}님 반갑습니다 :)`)
+            toast.success(`${user.name}님 반갑습니다 :)`);
             navigate("/");
         } catch (error) {
             if (error instanceof AxiosError) {
@@ -66,48 +65,86 @@ export function LoginForm() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h1 className="form__title">로그인</h1>
-            <div className="form__block">
-                <label htmlFor="email">이메일</label>
-                <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    value={email}
-                    onChange={onChange}
-                    required
-                />
+        <div
+            id="login__wrap"
+            className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0"
+        >
+            <div
+                id="login__block"
+                className="w-full h-2/3 bg-transparent backdrop-blur-2xl rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0"
+            >
+                <h1
+                    id="form__title"
+                    className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl"
+                >
+                    로그인
+                </h1>
+                <form
+                    className="space-y-4 md:space-y-6"
+                    onSubmit={handleSubmit}
+                >
+                    <div>
+                        <label
+                            htmlFor="email"
+                            className="block mb-2 text-sm font-medium text-gray-900"
+                        >
+                            이메일
+                        </label>
+                        <input
+                            className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                            type="email"
+                            name="email"
+                            id="email"
+                            value={email}
+                            onChange={onChange}
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label
+                            htmlFor="password"
+                            className="block mb-2 text-sm font-medium text-gray-900"
+                        >
+                            비밀번호
+                        </label>
+                        <input
+                            className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                            type="password"
+                            name="password"
+                            id="password"
+                            value={password}
+                            onChange={onChange}
+                            required
+                        />
+                    </div>
+                    <div className="flex items-center justify-between">
+                        <div className="flex items-start">
+                            계정이 없으신가요?
+                        </div>
+                        <Link
+                            to="/register"
+                            id="form__link"
+                            className="text-sm font-medium text-primary-600 hover:underline"
+                        >
+                            회원가입하기
+                        </Link>
+                    </div>
+                    {error && error.length > 0 && (
+                        <div>
+                            <div className="form__error">{error}</div>
+                        </div>
+                    )}
+                    <div>
+                        <button
+                            type="submit"
+                            id="form__btn__submit"
+                            className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                        >
+                            로그인
+                        </button>
+                    </div>
+                </form>
             </div>
-            <div className="form__block">
-                <label htmlFor="password">비밀번호</label>
-                <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    value={password}
-                    onChange={onChange}
-                    required
-                />
-            </div>
-            <div className="form__block">
-                계정이 없으신가요?
-                <Link to="/register" className="form__link">
-                    회원가입하기
-                </Link>
-            </div>
-            {error && error.length > 0 && (
-                <div className="form__block">
-                    <div className="form__error">{error}</div>
-                </div>
-            )}
-            <div className="form__block">
-                <input
-                    type="submit"
-                    value="로그인"
-                    className="form__btn-submit"
-                />
-            </div>
-        </form>
+        </div>
     );
 }
