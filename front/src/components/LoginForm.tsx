@@ -1,8 +1,10 @@
 import {post} from "api";
+import {AxiosError} from "axios";
 import {DispatchContext} from "context/AuthContext";
 import {useState, useContext} from "react";
 import {Link, useNavigate} from "react-router-dom";
-import { toast } from "react-toastify";
+import {toast} from "react-toastify";
+
 
 export function LoginForm() {
     const navigate = useNavigate();
@@ -30,7 +32,7 @@ export function LoginForm() {
 
         if (name === "password") {
             setPassword(value);
-            
+
             if (password.length < 7) {
                 setError("비밀번호는 8자리 이상 입력해주세요");
             } else {
@@ -54,12 +56,12 @@ export function LoginForm() {
                 type: "LOGIN_SUCCESS",
                 payload: user,
             });
+            toast.success(`${user.name}님 반갑습니다 :)`)
             navigate("/");
         } catch (error) {
-            if (error instanceof Error) {
-                console.log(error.message);
+            if (error instanceof AxiosError) {
+                toast.error("로그인에 실패했습니다.");
             }
-            toast.error("로그인에 실패했습니다.")
         }
     };
 
@@ -73,8 +75,8 @@ export function LoginForm() {
                     name="email"
                     id="email"
                     value={email}
-                    required
                     onChange={onChange}
+                    required
                 />
             </div>
             <div className="form__block">
@@ -84,8 +86,8 @@ export function LoginForm() {
                     name="password"
                     id="password"
                     value={password}
-                    required
                     onChange={onChange}
+                    required
                 />
             </div>
             <div className="form__block">

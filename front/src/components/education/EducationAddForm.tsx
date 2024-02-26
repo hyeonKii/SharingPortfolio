@@ -1,6 +1,7 @@
 import {post} from "api/index";
 import {AxiosError} from "axios";
 import {Dispatch, SetStateAction, useState} from "react";
+import { toast } from "react-toastify";
 
 interface EducationAddProps {
     userId: string;
@@ -41,7 +42,7 @@ export default function EducationAddForm({
             setIsAdd((prev) => !prev);
         } catch (e) {
             if (e instanceof AxiosError) {
-                console.log(e.message);
+                toast.error(e.message);
             }
         }
     };
@@ -56,6 +57,7 @@ export default function EducationAddForm({
                         name="school"
                         value={educationForm.school}
                         onChange={onChange}
+                        required
                     />
                 </div>
                 <div className="eduAddMajor">
@@ -65,6 +67,7 @@ export default function EducationAddForm({
                         name="major"
                         value={educationForm.major}
                         onChange={onChange}
+                        required
                     />
                 </div>
                 <div className="eduAddDegree__block">

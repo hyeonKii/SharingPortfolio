@@ -1,6 +1,7 @@
 import {post} from "api/index";
 import {AxiosError} from "axios";
 import {Dispatch, SetStateAction, useState} from "react";
+import { toast } from "react-toastify";
 
 interface AwardAddProps {
     userId: string;
@@ -40,7 +41,7 @@ export default function AwardAddForm({
             setIsAdd((prev) => !prev);
         } catch (e) {
             if (e instanceof AxiosError) {
-                console.log(e.message);
+                toast.error(e.message);
             }
         }
     };
@@ -55,6 +56,7 @@ export default function AwardAddForm({
                         name="awardTitle"
                         value={awardForm.awardTitle}
                         onChange={onChange}
+                        required
                     />
                 </div>
                 <div className="awardAddDetail">
@@ -64,6 +66,7 @@ export default function AwardAddForm({
                         name="awardDetail"
                         value={awardForm.awardDetail}
                         onChange={onChange}
+                        required
                     />
                 </div>
 

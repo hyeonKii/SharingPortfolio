@@ -1,5 +1,6 @@
 import {del} from "api/index";
 import {AxiosError} from "axios";
+import { toast } from "react-toastify";
 
 interface EduCardProps {
     edu: EducationContentsProps;
@@ -24,7 +25,7 @@ export default function EducationCard({
             });
         } catch (e) {
             if (e instanceof AxiosError) {
-                console.log(e.message);
+                toast.error(e.message);
             }
         }
     };

@@ -1,5 +1,6 @@
 import {del} from "api/index";
 import {AxiosError} from "axios";
+import { toast } from "react-toastify";
 
 interface CertiCardProps {
     certificate: CertiContentsProps;
@@ -26,7 +27,7 @@ export default function CertiCard({
             });
         } catch (e) {
             if (e instanceof AxiosError) {
-                console.log(e.message);
+                toast.error(e.message);
             }
         }
     };

@@ -3,7 +3,7 @@ import {AxiosError} from "axios";
 import {ko} from "date-fns/locale";
 import {useState} from "react";
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import { toast } from "react-toastify";
 
 interface ProjectFixProps {
     project: ProjectContentsProps;
@@ -25,7 +25,6 @@ export default function ProjectEditForm({
     });
 
     //date 설정
-
     const onDateChange = (date: Date, name: string) => {
         setProjectForm((prev) => ({
             ...prev,
@@ -70,7 +69,7 @@ export default function ProjectEditForm({
             setIsEdit((prev) => !prev);
         } catch (e) {
             if (e instanceof AxiosError) {
-                console.log(e.message);
+                toast.error(e.message);
             }
         }
     };
@@ -85,6 +84,7 @@ export default function ProjectEditForm({
                         name="projTitle"
                         value={projectForm.projTitle}
                         onChange={onChange}
+                        required
                     />
                 </div>
                 <div className="projectAddDetail">
@@ -94,6 +94,7 @@ export default function ProjectEditForm({
                         name="projDetail"
                         value={projectForm.projDetail}
                         onChange={onChange}
+                        required
                     />
                 </div>
                 <div className="projectEditFromDate">

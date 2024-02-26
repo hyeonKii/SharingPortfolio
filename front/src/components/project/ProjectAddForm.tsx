@@ -3,7 +3,7 @@ import {AxiosError} from "axios";
 import {ko} from "date-fns/locale";
 import {Dispatch, SetStateAction, useState} from "react";
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import { toast } from "react-toastify";
 
 interface ProjectAddProps {
     userId: string;
@@ -24,10 +24,8 @@ export default function ProjectAddForm({
     });
 
     //date 설정
-    //이슈 존재 = date만 설정하거나 date range도 같이 설정해줄 수 있는 라이브러리 찾아야 한다.
-    //이슈 존재 = 현재 시각 9시 42분 기준으로 2024-02-25T00:42:00.453Z 로 데이터 적재
-    // UTC 날짜를 우리나라 기준으로 바꾸어 줘야 함.
-
+    //react-datePicker로 라이브러리 변경
+    //날짜 언어 한국어로 변경하는 date-fns 설치 완료
     const onDateChange = (date: Date, name: string) => {
         setProjectForm((prev) => ({
             ...prev,
@@ -58,7 +56,7 @@ export default function ProjectAddForm({
             setIsAdd((prev) => !prev);
         } catch (e) {
             if (e instanceof AxiosError) {
-                console.log(e.message);
+                toast.error(e.message);
             }
         }
     };
@@ -72,6 +70,7 @@ export default function ProjectAddForm({
                         name="projTitle"
                         value={projectForm.projTitle}
                         onChange={onChange}
+                        required
                     />
                 </div>
                 <div className="projectAddDetail">
@@ -81,6 +80,7 @@ export default function ProjectAddForm({
                         name="projDetail"
                         value={projectForm.projDetail}
                         onChange={onChange}
+                        required
                     />
                 </div>
                 <div className="projectAddFromDate">

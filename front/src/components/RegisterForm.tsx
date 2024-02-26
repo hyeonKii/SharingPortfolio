@@ -1,4 +1,5 @@
 import {post} from "api";
+import { AxiosError } from "axios";
 import {useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
@@ -80,12 +81,11 @@ export function RegisterForm() {
                 password,
                 name,
             });
-            toast.success("회원가입이 완료되었습니다");
+            toast.success("회원가입이 완료되었습니다 :)");
             navigate("/login");
         } catch (error) {
-            if (error instanceof Error) {
+            if (error instanceof AxiosError) {
                 toast.error("회원가입에 실패했습니다");
-                console.log(error);
             }
         }
     };

@@ -1,6 +1,7 @@
 import {put} from "api/index";
 import {AxiosError} from "axios";
 import {useState} from "react";
+import { toast } from "react-toastify";
 
 interface EducationFixProps {
     edu: EducationContentsProps;
@@ -57,7 +58,7 @@ export default function EducationEditForm({
             setIsEdit((prev) => !prev);
         } catch (e) {
             if (e instanceof AxiosError) {
-                console.log(e.message);
+                toast.error(e.message);
             }
         }
     };
@@ -81,6 +82,7 @@ export default function EducationEditForm({
                         name="major"
                         value={educationForm.major}
                         onChange={onChange}
+                        required
                     />
                 </div>
                 <div className="eduEditDegree__block">
@@ -93,6 +95,7 @@ export default function EducationEditForm({
                             value="재학중"
                             checked={educationForm.degree === "재학중"}
                             onChange={onChange}
+                            required
                         />
                     </div>
                     <div className="eduAddDegree">

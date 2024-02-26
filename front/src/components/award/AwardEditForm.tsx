@@ -1,6 +1,7 @@
 import {put} from "api/index";
 import {AxiosError} from "axios";
 import {useState} from "react";
+import { toast } from "react-toastify";
 
 interface AwardFixProps {
     award: AwardContentsProps;
@@ -53,7 +54,7 @@ export default function AwardEditForm({
             setIsEdit((prev) => !prev);
         } catch (e) {
             if (e instanceof AxiosError) {
-                console.log(e.message);
+                toast.error(e.message);
             }
         }
     };
@@ -68,6 +69,7 @@ export default function AwardEditForm({
                         name="awardTitle"
                         value={awardForm.awardTitle}
                         onChange={onChange}
+                        required
                     />
                 </div>
                 <div className="awardEditDetail">
@@ -77,6 +79,7 @@ export default function AwardEditForm({
                         name="awardDetail"
                         value={awardForm.awardDetail}
                         onChange={onChange}
+                        required
                     />
                 </div>
 

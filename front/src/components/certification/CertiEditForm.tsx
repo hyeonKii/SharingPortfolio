@@ -3,7 +3,7 @@ import {AxiosError} from "axios";
 import {ko} from "date-fns/locale";
 import {useState} from "react";
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import { toast } from "react-toastify";
 interface CertiFixProps {
     certificate: CertiContentsProps;
     setCertificates: React.Dispatch<React.SetStateAction<CertiContentsProps[]>>;
@@ -23,7 +23,6 @@ export default function CertiEditForm({
     });
 
     //date 설정
-
     const onDateChange = (date: Date) => {
         setCertiForm((prev) => ({
             ...prev,
@@ -67,7 +66,7 @@ export default function CertiEditForm({
             setIsEdit((prev) => !prev);
         } catch (e) {
             if (e instanceof AxiosError) {
-                console.log(e.message);
+                toast.error(e.message);
             }
         }
     };
@@ -82,6 +81,7 @@ export default function CertiEditForm({
                         name="certiTitle"
                         value={certiForm.certiTitle}
                         onChange={onChange}
+                        required
                     />
                 </div>
                 <div className="certiEditDetail">
@@ -91,6 +91,7 @@ export default function CertiEditForm({
                         name="certiDetail"
                         value={certiForm.certiDetail}
                         onChange={onChange}
+                        required
                     />
                 </div>
                 <div className="certiEditDate">

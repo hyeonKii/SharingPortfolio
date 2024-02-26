@@ -8,6 +8,7 @@ import {
     useState,
 } from "react";
 import {loginReducer} from "./reducer";
+import {AxiosError} from "axios";
 
 interface AuthProps {
     children: ReactNode;
@@ -39,10 +40,10 @@ export const AuthContextProvider = ({children}: AuthProps) => {
                 type: "LOGIN_SUCCESS",
                 payload: currentUser as UserProps | null,
             });
-
-            console.log("세션 스토리지에 토큰이 존재합니다");
-        } catch {
-            console.log("세션 스토리지에 토큰이 존재하지 않습니다.");
+        } catch (e) {
+            if (e instanceof AxiosError) {
+                alert(e.message);
+            }
         }
         setIsInit(true);
     };
@@ -51,7 +52,7 @@ export const AuthContextProvider = ({children}: AuthProps) => {
         fetchCurrentUser();
     }, []);
 
-    //패칭이 안된 경우
+    //패칭이 안된 경우 - Loader 컴포넌트 구현 필요
     if (!isInit) {
         return "loading";
     }
