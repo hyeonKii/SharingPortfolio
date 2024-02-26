@@ -20,9 +20,6 @@ export function Header() {
 
     return (
         <header className="header">
-            <Link to="/" className="header_logo">
-                November
-            </Link>
             <div>
                 <Link to="/">Sharing Portfolio</Link>
                 <Link to="/">나의 페이지</Link>

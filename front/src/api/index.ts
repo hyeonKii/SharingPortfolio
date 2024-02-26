@@ -44,23 +44,12 @@ const del = async (endpoint: string) => {
 };
 
 const upload = async (endpoint: string, params = "", file: FormData) => {
-    try {
-        const data = await API.post(endpoint + "/" + params, file, {
-            headers: {
-                "Content-Type": "multipart/form-data",
-            },
-        });
-        return data;
-    } catch (e) {
-        console.log(e);
-    }
+    const data = await API.post(endpoint + "/" + params, file, {
+        headers: {
+            "Content-Type": "multipart/form-data",
+        },
+    });
+    return data;
 };
-
-// const del = async (endpoint: string, params = "") =>
-//     axios.delete(serverUrl + endpoint + "/" + params, {
-//         headers: {
-//             Authorization: `Bearer ${sessionStorage.getItem("userToken")}`,
-//         },
-//     });
 
 export {get, post, put, del, upload};
