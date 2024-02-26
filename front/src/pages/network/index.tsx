@@ -1,5 +1,5 @@
 import {Header} from "components/Header";
-import { Network } from "components/Network";
+import {Network} from "components/Network";
 
 export function NetworkPage() {
     return (

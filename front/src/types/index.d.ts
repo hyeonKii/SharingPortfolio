@@ -32,7 +32,7 @@ interface UserEditProps {
 
 interface UserCardProps {
     user: UserProps | null;
-    setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
+    setIsEdit?: React.Dispatch<React.SetStateAction<boolean>>;
     isEditable?: boolean;
 }
 

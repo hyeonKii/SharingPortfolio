@@ -5,6 +5,10 @@ import {Link} from "react-router-dom";
 export default function UserCard({user, setIsEdit, isEditable}: UserCardProps) {
     const userState = useContext(UserStateContext);
 
+    const completedEdit = setIsEdit as React.Dispatch<
+        React.SetStateAction<boolean>
+    >;
+
     return (
         <>
             <div className="card__block">
@@ -25,7 +29,7 @@ export default function UserCard({user, setIsEdit, isEditable}: UserCardProps) {
                     <div className="card__edit__block">
                         <button
                             className="card__edit__btn"
-                            onClick={() => setIsEdit(true)}
+                            onClick={() => completedEdit(true)}
                         >
                             편집
                         </button>

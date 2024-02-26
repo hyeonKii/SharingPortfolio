@@ -4,7 +4,7 @@ import {useContext, useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import UserCard from "./user/UserCard";
 
-export function Network({setIsEdit}: UserCardProps) {
+export function Network() {
     const navigate = useNavigate();
     const userState = useContext(UserStateContext);
 
@@ -49,11 +49,7 @@ export function Network({setIsEdit}: UserCardProps) {
                             search === "" ? data : data.name?.includes(search)
                         )
                         .map((user) => (
-                            <UserCard
-                                key={user.id}
-                                user={user}
-                                setIsEdit={setIsEdit}
-                            />
+                            <UserCard key={user.id} user={user} />
                         ))}
                 </div>
             </div>
