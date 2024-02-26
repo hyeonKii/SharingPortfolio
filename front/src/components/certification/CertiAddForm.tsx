@@ -1,10 +1,9 @@
 import {post} from "api/index";
 import {AxiosError} from "axios";
-import {DateInventory} from "components/utils/DateInventory";
+import { ko } from "date-fns/locale";
 import {Dispatch, SetStateAction, useState} from "react";
-import Datepicker from "tailwind-datepicker-react";
-import {IOptions} from "tailwind-datepicker-react/types/Options";
-
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 interface CertiAddProps {
     userId: string;
     setCertificates: React.Dispatch<React.SetStateAction<CertiContentsProps[]>>;
@@ -21,9 +20,6 @@ export default function CertiAddForm({
         certiDetail: "",
         certiDate: new Date(),
     });
-
-    //date 설정
-    const {options, show, onClose} = DateInventory();
 
     const onDateChange = (date: Date) => {
         setCertiForm((prev) => ({
@@ -82,11 +78,10 @@ export default function CertiAddForm({
                     />
                 </div>
                 <div className="certiAddDate">
-                    <Datepicker
-                        options={options as IOptions}
-                        show={show}
+                    <DatePicker
+                        locale={ko}
+                        selected={certiForm.certiDate}
                         onChange={onDateChange}
-                        setShow={onClose}
                     />
                 </div>
 

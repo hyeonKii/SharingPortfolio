@@ -1,9 +1,9 @@
 import {put} from "api/index";
 import {AxiosError} from "axios";
-import {DateInventory} from "components/utils/DateInventory";
+import {ko} from "date-fns/locale";
 import {useState} from "react";
-import DatePicker from "tailwind-datepicker-react";
-import {IOptions} from "tailwind-datepicker-react/types/Options";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 interface ProjectFixProps {
     project: ProjectContentsProps;
@@ -25,7 +25,6 @@ export default function ProjectEditForm({
     });
 
     //date 설정
-    const {options, show, onClose} = DateInventory();
 
     const onDateChange = (date: Date, name: string) => {
         setProjectForm((prev) => ({
@@ -97,20 +96,20 @@ export default function ProjectEditForm({
                         onChange={onChange}
                     />
                 </div>
-                <div className="projectAddFromDate">
+                <div className="projectEditFromDate">
                     <DatePicker
-                        options={options as IOptions}
-                        show={show}
-                        onChange={(date) => onDateChange(date, "fromDate")}
-                        setShow={onClose}
+                        locale={ko}
+                        selected={projectForm.fromDate}
+                        onChange={(date: Date) =>
+                            onDateChange(date, "fromDate")
+                        }
                     />
                 </div>
-                <div className="projectAddToDate">
+                <div className="projectEditToDate">
                     <DatePicker
-                        options={options as IOptions}
-                        show={show}
-                        onChange={(date) => onDateChange(date, "toDate")}
-                        setShow={onClose}
+                        locale={ko}
+                        selected={projectForm.toDate}
+                        onChange={(date: Date) => onDateChange(date, "toDate")}
                     />
                 </div>
                 <div className="projectEdit__btn__block">

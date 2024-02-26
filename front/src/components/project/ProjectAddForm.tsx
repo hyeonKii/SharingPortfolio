@@ -1,9 +1,9 @@
 import {post} from "api/index";
 import {AxiosError} from "axios";
-import {DateInventory} from "components/utils/DateInventory";
+import {ko} from "date-fns/locale";
 import {Dispatch, SetStateAction, useState} from "react";
-import DatePicker from "tailwind-datepicker-react";
-import {IOptions} from "tailwind-datepicker-react/types/Options";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 interface ProjectAddProps {
     userId: string;
@@ -27,7 +27,6 @@ export default function ProjectAddForm({
     //이슈 존재 = date만 설정하거나 date range도 같이 설정해줄 수 있는 라이브러리 찾아야 한다.
     //이슈 존재 = 현재 시각 9시 42분 기준으로 2024-02-25T00:42:00.453Z 로 데이터 적재
     // UTC 날짜를 우리나라 기준으로 바꾸어 줘야 함.
-    const {options, show, onClose} = DateInventory();
 
     const onDateChange = (date: Date, name: string) => {
         setProjectForm((prev) => ({
@@ -84,22 +83,20 @@ export default function ProjectAddForm({
                         onChange={onChange}
                     />
                 </div>
-                <div className="projectAddFromDate" id="1">
+                <div className="projectAddFromDate">
                     <DatePicker
-                        key="fromDate"
-                        options={options as IOptions}
-                        show={show}
-                        onChange={(date) => onDateChange(date, "fromDate")}
-                        setShow={onClose}
+                        locale={ko}
+                        selected={projectForm.fromDate}
+                        onChange={(date: Date) =>
+                            onDateChange(date, "fromDate")
+                        }
                     />
                 </div>
-                <div className="projectAddToDate" id="2">
+                <div className="projectAddToDate">
                     <DatePicker
-                        key="toDate"
-                        options={options as IOptions}
-                        show={show}
-                        onChange={(date) => onDateChange(date, "toDate")}
-                        setShow={onClose}
+                        locale={ko}
+                        selected={projectForm.toDate}
+                        onChange={(date: Date) => onDateChange(date, "toDate")}
                     />
                 </div>
 

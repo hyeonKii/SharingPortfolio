@@ -4,21 +4,23 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host 0.0.0.0 --port 3005",
+    "dev": "vite --host 0.0.0.0 --port 3008",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
     "axios": "^1.6.7",
+    "date-fns": "^3.3.1",
     "react": "^18.2.0",
+    "react-datepicker": "^6.1.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.0",
-    "react-toastify": "^10.0.4",
-    "tailwind-datepicker-react": "^1.4.3"
+    "react-toastify": "^10.0.4"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
+    "@types/react-datepicker": "^6.0.1",
     "@types/react-dom": "^18.2.17",
     "@types/react-router-dom": "^5.3.3",
     "@typescript-eslint/eslint-plugin": "^6.14.0",

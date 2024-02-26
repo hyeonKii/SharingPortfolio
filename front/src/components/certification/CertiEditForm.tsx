@@ -1,10 +1,9 @@
 import {put} from "api/index";
 import {AxiosError} from "axios";
-import { DateInventory } from "components/utils/DateInventory";
+import {ko} from "date-fns/locale";
 import {useState} from "react";
-import DatePicker from "tailwind-datepicker-react";
-import { IOptions } from "tailwind-datepicker-react/types/Options";
-
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 interface CertiFixProps {
     certificate: CertiContentsProps;
     setCertificates: React.Dispatch<React.SetStateAction<CertiContentsProps[]>>;
@@ -24,7 +23,6 @@ export default function CertiEditForm({
     });
 
     //date 설정
-    const {options, show, onClose} = DateInventory();
 
     const onDateChange = (date: Date) => {
         setCertiForm((prev) => ({
@@ -74,9 +72,10 @@ export default function CertiEditForm({
         }
     };
 
-    return (<>
-        <form className="certi_editForm" onSubmit={handleSubmit}>
-        <div className="certiEditTitle">
+    return (
+        <>
+            <form className="certi_editForm" onSubmit={handleSubmit}>
+                <div className="certiEditTitle">
                     <input
                         type="text"
                         placeholder="자격증 이름"
@@ -96,10 +95,9 @@ export default function CertiEditForm({
                 </div>
                 <div className="certiEditDate">
                     <DatePicker
-                        options={options as IOptions}
-                        show={show}
+                        locale={ko}
+                        selected={certiForm.certiDate}
                         onChange={onDateChange}
-                        setShow={onClose}
                     />
                 </div>
 
@@ -114,6 +112,7 @@ export default function CertiEditForm({
                         취소
                     </button>
                 </div>
-        </form>
-    </>);
+            </form>
+        </>
+    );
 }
