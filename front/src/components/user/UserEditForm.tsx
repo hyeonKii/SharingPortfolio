@@ -2,6 +2,7 @@ import {put} from "api/index";
 import {useState} from "react";
 import {upload} from "api/index";
 import {AxiosError} from "axios";
+import {toast} from "react-toastify";
 
 export default function UserEditForm({
     user,
@@ -15,31 +16,24 @@ export default function UserEditForm({
         user?.profileImageFilename
     );
 
-    const [fileprevImage, setFileprevImage] = useState("");
-    const setFilepreviewImage = (e: React.ChangeEvent<HTMLInputElement>) => {
+    //이미지 프리뷰
+    const [previewImg, setPreviewImg] = useState("");
+    const setPreviewImage = (e: React.ChangeEvent<HTMLInputElement>) => {
         const files = e.target.files as FileList;
-
-        //test = blob:http://localhost:3005/2cc62be5-c0f9-472e-8b8b-3192b5df16c9
-        console.log(URL.createObjectURL(files[0]));
-
-        setFileprevImage(URL.createObjectURL(files[0]));
+        setPreviewImg(URL.createObjectURL(files[0]));
     };
 
+    //이미지 업로드
     const uploadImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const formData = new FormData();
         const files = e.target.files as FileList;
         formData.append("file", files[0]);
 
-        //test = 아직 확인 중
-        console.table(...formData);
+        const res = await upload(`user/profile`, `${user?.id}`, formData);
+        const uploadedImage = await res?.data;
 
-        const res = await upload(`user/profile/`, `${user?.id}`, formData);
-        const impageUpload = await res?.data;
-
-        console.log(impageUpload);
-
-        setProfileImageFileName(impageUpload);
-        setFilepreviewImage(e);
+        setProfileImageFileName(uploadedImage);
+        setPreviewImage(e);
     };
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -74,7 +68,7 @@ export default function UserEditForm({
             setIsEdit((prev) => !prev);
         } catch (e) {
             if (e instanceof AxiosError) {
-                console.log(e.message);
+                toast.error(e.message);
             }
         }
     };
@@ -82,10 +76,10 @@ export default function UserEditForm({
     return (
         <>
             <form onSubmit={handleSubmit}>
-                {fileprevImage ? (
+                {previewImg ? (
                     <img
                         style={{width: "10rem", height: "8rem"}}
-                        src={`${fileprevImage}`}
+                        src={`${previewImg}`}
                         alt="사용자 업로드 프로필 이미지"
                     />
                 ) : (
@@ -95,12 +89,7 @@ export default function UserEditForm({
                         alt="사용자 등록 프로필 이미지"
                     />
                 )}
-                <input
-                    type="file"
-                    formMethod="post"
-                    formEncType="multi/form-data"
-                    onChange={(e) => uploadImage(e)}
-                />
+                <input type="file" onChange={(e) => uploadImage(e)} />
                 <input type="text" id="name" value={name} onChange={onChange} />
                 <input
                     type="text"

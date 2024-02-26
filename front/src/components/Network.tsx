@@ -10,6 +10,7 @@ export function Network({setIsEdit}: UserCardProps) {
 
     const [users, setUsers] = useState<UserProps[]>([]);
     const [search, setSearch] = useState<string>("");
+
     // const sortByNameASC = () => {
     //     const sortedUser = [...users].sort(
     //         (a, b) => -a.name.localeCompare(b.name)

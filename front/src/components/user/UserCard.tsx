@@ -12,6 +12,11 @@ export default function UserCard({user, setIsEdit, isEditable}: UserCardProps) {
                     className="card__image"
                     src={`http://localhost:5001/${user?.profileImageFilename}`}
                     alt="사용자 등록 프로필 이미지"
+                    style={{
+                        width: "10rem",
+                        height: "10rem",
+                        borderRadius: "10px",
+                    }}
                 />
                 <div className="card__title">{user?.name}</div>
                 <div className="card__email">{user?.email}</div>

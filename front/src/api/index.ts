@@ -45,7 +45,11 @@ const del = async (endpoint: string) => {
 
 const upload = async (endpoint: string, params = "", file: FormData) => {
     try {
-        const data = await API.post(endpoint + "/" + params, file);
+        const data = await API.post(endpoint + "/" + params, file, {
+            headers: {
+                "Content-Type": "multipart/form-data",
+            },
+        });
         return data;
     } catch (e) {
         console.log(e);
