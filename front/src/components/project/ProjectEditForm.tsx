@@ -1,9 +1,8 @@
 import {put} from "api/index";
 import {AxiosError} from "axios";
-import {ko} from "date-fns/locale";
 import {useState} from "react";
 import DatePicker from "react-datepicker";
-import { toast } from "react-toastify";
+import {toast} from "react-toastify";
 
 interface ProjectFixProps {
     project: ProjectContentsProps;
@@ -99,7 +98,6 @@ export default function ProjectEditForm({
                 </div>
                 <div className="projectEditFromDate">
                     <DatePicker
-                        locale={ko}
                         selected={projectForm.fromDate}
                         onChange={(date: Date) =>
                             onDateChange(date, "fromDate")
@@ -108,7 +106,6 @@ export default function ProjectEditForm({
                 </div>
                 <div className="projectEditToDate">
                     <DatePicker
-                        locale={ko}
                         selected={projectForm.toDate}
                         onChange={(date: Date) => onDateChange(date, "toDate")}
                     />

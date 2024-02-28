@@ -17,8 +17,8 @@ export default function UserCard({user, setIsEdit, isEditable}: UserCardProps) {
                     src={`http://localhost:5001/${user?.profileImageFilename}`}
                     alt="사용자 등록 프로필 이미지"
                     style={{
-                        width: "10rem",
-                        height: "10rem",
+                        width: "7rem",
+                        height: "7rem",
                         borderRadius: "10px",
                     }}
                 />

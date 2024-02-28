@@ -2,11 +2,14 @@ import axios from "axios";
 
 const API = axios.create({
     baseURL: import.meta.env.VITE_BASE_URL,
+    headers: {
+        "Content-Type": "application/json",
+    },
 });
 
+//서버로 요청 보내기 전 interceptors를 활용해 세션스토리지에서 이전에 서버에서 받은 토큰을 header 설정 후에 요청 
 API.interceptors.request.use((config) => {
     const accessToken = sessionStorage.getItem("userToken");
-    config.headers["Content-Type"] = "application/json";
     config.headers["Authorization"] = `Bearer ${accessToken}`;
 
     return config;
@@ -23,11 +26,7 @@ const post = async (endpoint: string, userData: UserProps) => {
 };
 
 const put = async (endpoint: string, userData: UserProps) => {
-    const {data} = await API.put(endpoint, userData, {
-        headers: {
-            Authorization: `Bearer ${sessionStorage.getItem("userToken")}`,
-        },
-    });
+    const {data} = await API.put(endpoint, userData);
     return data;
 };
 
