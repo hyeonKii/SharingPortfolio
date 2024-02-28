@@ -1,9 +1,8 @@
 import {post} from "api/index";
 import {AxiosError} from "axios";
-import {ko} from "date-fns/locale";
 import {Dispatch, SetStateAction, useState} from "react";
 import DatePicker from "react-datepicker";
-import { toast } from "react-toastify";
+import {toast} from "react-toastify";
 
 interface ProjectAddProps {
     userId: string;
@@ -85,7 +84,6 @@ export default function ProjectAddForm({
                 </div>
                 <div className="projectAddFromDate">
                     <DatePicker
-                        locale={ko}
                         selected={projectForm.fromDate}
                         onChange={(date: Date) =>
                             onDateChange(date, "fromDate")
@@ -94,7 +92,6 @@ export default function ProjectAddForm({
                 </div>
                 <div className="projectAddToDate">
                     <DatePicker
-                        locale={ko}
                         selected={projectForm.toDate}
                         onChange={(date: Date) => onDateChange(date, "toDate")}
                     />

@@ -1,6 +1,5 @@
 import {post} from "api/index";
 import {AxiosError} from "axios";
-import {ko} from "date-fns/locale";
 import {Dispatch, SetStateAction, useState} from "react";
 import DatePicker from "react-datepicker";
 import { toast } from "react-toastify";
@@ -83,7 +82,6 @@ export default function CertiAddForm({
                 </div>
                 <div className="certiAddDate">
                     <DatePicker
-                        locale={ko}
                         selected={certiForm.certiDate}
                         onChange={onDateChange}
                     />
