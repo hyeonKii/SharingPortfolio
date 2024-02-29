@@ -4,14 +4,17 @@ import {DispatchContext} from "context/AuthContext";
 import {useState, useContext} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
+import { useValid } from "./utils/valid";
 
 export function LoginForm() {
     const navigate = useNavigate();
     const dispatch = useContext(DispatchContext);
 
-    const [error, setError] = useState<string>("");
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
+
+    //useValid로 에러 문구 처리
+    const {emailError, setEmailError, pwError, setPwError} = useValid();
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const {
@@ -23,9 +26,9 @@ export function LoginForm() {
                 /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
             if (!value?.match(vaildRegex)) {
-                setError("이메일 형식이 올바르지 않습니다.");
+                setEmailError("이메일 형식이 올바르지 않습니다.");
             } else {
-                setError("");
+                setEmailError("");
             }
         }
 
@@ -33,9 +36,9 @@ export function LoginForm() {
             setPassword(value);
 
             if (password.length < 7) {
-                setError("비밀번호는 8자리 이상 입력해주세요");
+                setPwError("비밀번호는 8자리 이상 입력해주세요");
             } else {
-                setError("");
+                setPwError("");
             }
         }
     };
@@ -67,21 +70,21 @@ export function LoginForm() {
     return (
         <div
             id="login__wrap"
-            className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0"
+            className="flex flex-col min-h-dvh justify-center items-center"
         >
             <h1 id="main__title" className="text-3xl text-white mb-5">sharing portfolio</h1>
             <div
                 id="login__block"
-                className="w-full h-3/5 bg-transparent backdrop-blur-3xl rounded-xl shadow-2xl md:mt-0 sm:max-w-md xl:p-0"
+                className="w-2/6 min-w-96 bg-transparent backdrop-blur-3xl rounded-xl shadow-2xl"
             >
                 <h2
                     id="form__title"
-                    className="text-xl text-center font-bold leading-tight tracking-tight text-gray-900 my-10 md:text-2xl"
+                    className="text-2xl text-center font-bold text-gray-900 my-8"
                 >
                     로그인
                 </h2>
                 <form
-                    className="space-y-4 md:space-y-6"
+                    className="space-y-6"
                     onSubmit={handleSubmit}
                 >
                     <div>
@@ -89,10 +92,10 @@ export function LoginForm() {
                             htmlFor="email"
                             className="block mb-2 text-sm font-medium text-gray-900 ml-12"
                         >
-                            이메일
+                            이메일 {emailError && emailError.length > 0 && (<span id="form__error" className="text-indigo-900">- {emailError}</span>)}
                         </label>
                         <input
-                            className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-4/5 p-2.5 mx-auto"
+                            className="block w-4/5 p-2.5 mx-auto bg-gray-50 text-gray-900 sm:text-sm border border-gray-300 rounded-lg"
                             type="email"
                             name="email"
                             id="email"
@@ -106,10 +109,10 @@ export function LoginForm() {
                             htmlFor="password"
                             className="block mb-2 text-sm font-medium text-gray-900 ml-12"
                         >
-                            비밀번호
+                            비밀번호 {pwError && pwError.length > 0 && (<span id="form__error" className="text-indigo-900">- {pwError}</span>)}
                         </label>
                         <input
-                            className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-4/5 p-2.5 mx-auto"
+                            className="block w-4/5 p-2.5 mx-auto bg-gray-50 text-gray-900 sm:text-sm border border-gray-300 rounded-lg"
                             type="password"
                             name="password"
                             id="password"
@@ -130,16 +133,16 @@ export function LoginForm() {
                             회원가입하기
                         </Link>
                     </div>
-                    {error && error.length > 0 && (
-                        <div>
-                            <div className="form__error">{error}</div>
+                    {/* {error && error.length > 0 && (
+                        <div className="flex justify-center">
+                            <span id="form__error" className="text-indigo-900">{error}</span>
                         </div>
-                    )}
-                    <div>
+                    )} */}
+                    <div className="flex justify-center">
                         <button
                             type="submit"
                             id="form__btn__submit"
-                            className="w-4/5 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mx-12 mt-1"
+                            className="w-4/5 px-5 py-2.5 mb-7 text-sm text-white text-center font-medium bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-lg"
                         >
                             로그인
                         </button>

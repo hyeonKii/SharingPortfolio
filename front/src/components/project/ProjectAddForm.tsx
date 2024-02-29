@@ -24,7 +24,6 @@ export default function ProjectAddForm({
 
     //date 설정
     //react-datePicker로 라이브러리 변경
-    //날짜 언어 한국어로 변경하는 date-fns 설치 완료
     const onDateChange = (date: Date, name: string) => {
         setProjectForm((prev) => ({
             ...prev,
