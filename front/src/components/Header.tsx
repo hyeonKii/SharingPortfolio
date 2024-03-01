@@ -38,14 +38,14 @@ export function Header() {
 
                     <ul className="menu">
                         <Link to="/">
-                            <li>나의 페이지</li>
+                            <li>My Portfolio</li>
                         </Link>
                         <Link to="/network">
-                            <li>네트워크</li>
+                            <li>Networking</li>
                         </Link>
                         {isLogin && (
                             <a>
-                                <li onClick={logout}>로그아웃</li>
+                                <li onClick={logout}>Log Out</li>
                             </a>
                         )}
                     </ul>
