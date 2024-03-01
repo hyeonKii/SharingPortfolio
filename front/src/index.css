@@ -124,15 +124,18 @@ body {
     color: #7396d3;
 }
 
+/* 네비게이션 바 햄버거 1번째 요소 위치 설정*/
 .menuToggle span:first-child {
     transform-origin: 0% 0%;
 }
 
+/* 네비게이션 바 햄버거 2번째 요소 위치 설정*/
 .menuToggle span:nth-last-child(2) {
     margin: 7px 0;
     transform-origin: 0% 100%;
 }
 
+/* 네비게이션 바 햄버거 3번째 요소 위치 설정*/
 .menuToggle span:nth-last-child(3) {
   margin: 14px 0;
   transform-origin: 0% 100%;
