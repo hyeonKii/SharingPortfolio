@@ -1,9 +1,8 @@
 import {get} from "api/index";
-import {useEffect, useState} from "react";
+import {Suspense, useEffect, useState} from "react";
 import UserEditForm from "./UserEditForm";
 import UserCard from "./UserCard";
-
-
+import { Loader } from "components/utils/Loader";
 
 export default function User({userId, isEditable}: OwnerProps) {
     const [isEdit, setIsEdit] = useState<boolean>(false);
@@ -15,19 +14,21 @@ export default function User({userId, isEditable}: OwnerProps) {
 
     return (
         <>
-            {isEdit ? (
-                <UserEditForm
-                    user={user}
-                    setIsEdit={setIsEdit}
-                    setUser={setUser}
-                />
-            ) : (
-                <UserCard
-                    user={user}
-                    setIsEdit={setIsEdit}
-                    isEditable={isEditable}
-                />
-            )}
+            <Suspense fallback={<Loader />}>
+                {isEdit ? (
+                    <UserEditForm
+                        user={user}
+                        setIsEdit={setIsEdit}
+                        setUser={setUser}
+                    />
+                ) : (
+                    <UserCard
+                        user={user}
+                        setIsEdit={setIsEdit}
+                        isEditable={isEditable}
+                    />
+                )}
+            </Suspense>
         </>
     );
 }

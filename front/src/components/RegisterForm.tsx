@@ -105,7 +105,7 @@ export function RegisterForm() {
             </h1>
             <div
                 id="register__block"
-                className="w-2/6 min-w-96 bg-transparent backdrop-blur-3xl rounded-xl shadow-2xl"
+                className="w-[450px] min-w-96 bg-transparent backdrop-blur-3xl rounded-xl shadow-2xl"
             >
                 <h2
                     id="form__title"

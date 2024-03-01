@@ -7,6 +7,7 @@ import Awards from "./award/Awards";
 import Educations from "./education/Educations";
 import Certifications from "./certification/Certifications";
 import Projects from "./project/Projects";
+import {Loader} from "./utils/Loader";
 
 export function Portfolio() {
     const navigate = useNavigate();
@@ -45,44 +46,44 @@ export function Portfolio() {
         }
     }, [params, userState, navigate]);
 
-    if (!isFetched) {
-        return "loading...";
-    }
-
     return (
         <>
-            <div className="portfolio">
-                <div className="portfolio__block">
-                    <User
-                        userId={userInfo.id as string}
-                        isEditable={userInfo.id === userState.user?.id}
-                    />
+            {!isFetched ? (
+                <Loader />
+            ) : (
+                <div className="portfolio">
+                    <div className="portfolio__block">
+                        <User
+                            userId={userInfo.id as string}
+                            isEditable={userInfo.id === userState.user?.id}
+                        />
+                    </div>
+                    <div className="portfolio__block">
+                        <Educations
+                            userId={userInfo.id as string}
+                            isEditable={userInfo.id === userState.user?.id}
+                        />
+                    </div>
+                    <div className="portfolio__block">
+                        <Awards
+                            userId={userInfo.id as string}
+                            isEditable={userInfo.id === userState.user?.id}
+                        />
+                    </div>
+                    <div className="portfolio__block">
+                        <Certifications
+                            userId={userInfo.id as string}
+                            isEditable={userInfo.id === userState.user?.id}
+                        />
+                    </div>
+                    <div className="portfolio__block">
+                        <Projects
+                            userId={userInfo.id as string}
+                            isEditable={userInfo.id === userState.user?.id}
+                        />
+                    </div>
                 </div>
-                <div className="portfolio__block">
-                    <Educations
-                        userId={userInfo.id as string}
-                        isEditable={userInfo.id === userState.user?.id}
-                    />
-                </div>
-                <div className="portfolio__block">
-                    <Awards
-                        userId={userInfo.id as string}
-                        isEditable={userInfo.id === userState.user?.id}
-                    />
-                </div>
-                <div className="portfolio__block">
-                    <Certifications
-                        userId={userInfo.id as string}
-                        isEditable={userInfo.id === userState.user?.id}
-                    />
-                </div>
-                <div className="portfolio__block">
-                    <Projects
-                        userId={userInfo.id as string}
-                        isEditable={userInfo.id === userState.user?.id}
-                    />
-                </div>
-            </div>
+            )}
         </>
     );
 }

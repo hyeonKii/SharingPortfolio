@@ -4,6 +4,7 @@ import {PortfolioPage} from "pages/portfolio";
 import {RegisterPage} from "pages/register";
 import {Route, Routes} from "react-router-dom";
 
+
 interface RouterProps {
     isAuth: boolean;
 }
@@ -15,7 +16,10 @@ export default function Routers({isAuth}: RouterProps) {
                 {isAuth ? (
                     <>
                         <Route path="/" element={<PortfolioPage />} />
-                        <Route path="/users/:userId" element={<PortfolioPage />} />
+                        <Route
+                            path="/users/:userId"
+                            element={<PortfolioPage />}
+                        />
                         <Route path="/network" element={<NetworkPage />} />
                     </>
                 ) : (

@@ -75,7 +75,7 @@ export function LoginForm() {
             <h1 id="main__title" className="text-3xl text-white mb-5">sharing portfolio</h1>
             <div
                 id="login__block"
-                className="w-2/6 min-w-96 bg-transparent backdrop-blur-3xl rounded-xl shadow-2xl"
+                className="w-[450px] min-w-96 bg-transparent backdrop-blur-3xl rounded-xl shadow-2xl"
             >
                 <h2
                     id="form__title"
