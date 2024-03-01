@@ -133,11 +133,6 @@ export function LoginForm() {
                             회원가입하기
                         </Link>
                     </div>
-                    {/* {error && error.length > 0 && (
-                        <div className="flex justify-center">
-                            <span id="form__error" className="text-indigo-900">{error}</span>
-                        </div>
-                    )} */}
                     <div className="flex justify-center">
                         <button
                             type="submit"

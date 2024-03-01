@@ -2,13 +2,15 @@ import {get} from "api/index";
 import {
     Dispatch,
     ReactNode,
+    Suspense,
     createContext,
     useEffect,
     useReducer,
-    useState,
+    // useState,
 } from "react";
 import {loginReducer} from "./reducer";
 import {AxiosError} from "axios";
+import {Loader} from "components/utils/Loader";
 
 interface AuthProps {
     children: ReactNode;
@@ -22,12 +24,9 @@ export const AuthContextProvider = ({children}: AuthProps) => {
         user: null,
     });
 
-    const [isInit, setIsInit] = useState<boolean>(false);
-
     const fetchCurrentUser = async () => {
         //유저가 존재하지 않을 경우
         if (!sessionStorage.getItem("userToken")) {
-            setIsInit(true);
             return dispatch({
                 type: "default",
             });
@@ -45,23 +44,21 @@ export const AuthContextProvider = ({children}: AuthProps) => {
                 alert(e.message);
             }
         }
-        setIsInit(true);
     };
 
     useEffect(() => {
         fetchCurrentUser();
     }, []);
 
-    //패칭이 안된 경우 - Loader 컴포넌트 구현 필요
-    if (!isInit) {
-        return "loading";
-    }
-
     return (
-        <DispatchContext.Provider value={dispatch}>
-            <UserStateContext.Provider value={userState}>
-                {children}
-            </UserStateContext.Provider>
-        </DispatchContext.Provider>
+        <>
+            <Suspense fallback={<Loader />}>
+                <DispatchContext.Provider value={dispatch}>
+                    <UserStateContext.Provider value={userState}>
+                        {children}
+                    </UserStateContext.Provider>
+                </DispatchContext.Provider>
+            </Suspense>
+        </>
     );
 };
