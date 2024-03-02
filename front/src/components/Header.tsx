@@ -20,8 +20,8 @@ export function Header() {
 
     return (
         <>
-            <div className="flex justify-between items-center h-[60px] backdrop-blur-3xl shadow-2xl">
-                <div>
+            <div id="headerWrap" className="flex justify-between items-center h-[60px] backdrop-blur-3xl shadow-2xl">
+                <div id="logo">
                     <Link to="/">
                         <span className="text-xl text-white pl-5 ">
                             Sharing Portfolio
@@ -30,8 +30,10 @@ export function Header() {
                 </div>
 
                 <div className="menuToggle">
-                    <input type="checkbox" />
+                    {/* 트리거 */}
+                    <input type="checkbox"/>
 
+                    {/* 네비게이션 바 모양 */}
                     <span></span>
                     <span></span>
                     <span></span>
