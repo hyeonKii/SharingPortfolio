@@ -20,8 +20,8 @@ export function Header() {
 
     return (
         <>
-            <div id="headerWrap" className="flex justify-between items-center h-[60px] backdrop-blur-3xl shadow-2xl">
-                <div id="logo">
+            <div className="flex justify-between items-center h-[60px] backdrop-blur-3xl shadow-2xl">
+                <div>
                     <Link to="/">
                         <span className="text-xl text-white pl-5 ">
                             Sharing Portfolio
