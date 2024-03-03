@@ -31,7 +31,7 @@ export function Network() {
 
     return (
         <>
-            <div className="network__block">
+            <div className="main__frame">
                 <div className="search__block">
                     <form className="search__form">
                         <input

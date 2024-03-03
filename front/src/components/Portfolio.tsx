@@ -52,32 +52,32 @@ export function Portfolio() {
                 <Loader />
             ) : (
                 <>
-                    <div className="portfolio">
-                        <div className="portfolio__block_1">
+                    <div className="main__frame">
+                        <div className="portfolio__user">
                             <User
                                 userId={userInfo.id as string}
                                 isEditable={userInfo.id === userState.user?.id}
                             />
                         </div>
-                        <div className="portfolio__block_2">
+                        <div className="portfolio__edu">
                             <Educations
                                 userId={userInfo.id as string}
                                 isEditable={userInfo.id === userState.user?.id}
                             />
                         </div>
-                        <div className="portfolio__block_3">
+                        <div className="portfolio__award">
                             <Awards
                                 userId={userInfo.id as string}
                                 isEditable={userInfo.id === userState.user?.id}
                             />
                         </div>
-                        <div className="portfolio__block_4">
+                        <div className="portfolio__certification">
                             <Certifications
                                 userId={userInfo.id as string}
                                 isEditable={userInfo.id === userState.user?.id}
                             />
                         </div>
-                        <div className="portfolio__block_5">
+                        <div className="portfolio__project">
                             <Projects
                                 userId={userInfo.id as string}
                                 isEditable={userInfo.id === userState.user?.id}
