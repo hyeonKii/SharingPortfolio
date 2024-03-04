@@ -16,7 +16,9 @@ export default function Educations({userId, isEditable}: OwnerProps) {
     return (
         <>
             <div className="card__block">
-                <div className="card__title">학력</div>
+                <div className="w-32 mx-auto bg-blue-400 rounded-full text-lg text-white font-bold text-center">
+                    학력
+                </div>
                 {educations.map((education) => (
                     <Education
                         key={education.eduId}
@@ -33,9 +35,9 @@ export default function Educations({userId, isEditable}: OwnerProps) {
                     />
                 )}
                 {isEditable && (
-                    <div className="educations__editBtn__block">
+                    <div className="flex justify-center mt-4">
                         <button
-                            className="educations__edit__btn"
+                            className="w-8 h-8 pb-0.5 border border-2 border-blue-500 rounded-lg text-blue-500 font-bold"
                             onClick={() => setIsAdd(true)}
                         >
                             +

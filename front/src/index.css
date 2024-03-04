@@ -166,7 +166,7 @@ body {
     grid-auto-rows: 48%;
 
     width: 60vw;
-    min-width: 650px;
+    min-width: 920px;
     height: 80vh;
     min-height: 500px;
 
@@ -204,6 +204,7 @@ body {
 /* 학력 프레임 */
 .portfolio__edu {
     width: 90%;
+    min-width: 250px;
     height: 95%;
     margin: 20px 5px;
     padding: 10px;
@@ -214,6 +215,7 @@ body {
 /* 수상이력 프레임 */
 .portfolio__award {
     width: 90%;
+    min-width: 250px;
     height: 95%;
     margin: 20px 5px;
     padding: 10px;
@@ -224,6 +226,7 @@ body {
 /* 자격증 프레임 */
 .portfolio__certification {
     width: 90%;
+    min-width: 250px;
     height: 95%;
     margin: 20px 5px;
     padding: 10px;
@@ -234,6 +237,7 @@ body {
 /* 프로젝트 이력 프레임*/
 .portfolio__project {
     width: 90%;
+    min-width: 250px;
     height: 95%;
     margin: 20px 5px;
     padding: 10px;

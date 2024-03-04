@@ -36,9 +36,7 @@ export default function UserEditForm({
         setPreviewImage(e);
     };
 
-    const onChange = (
-        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-    ) => {
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const {
             target: {id, value},
         } = e;
@@ -94,32 +92,52 @@ export default function UserEditForm({
                         alt="사용자 등록 프로필 이미지"
                     />
                 )}
-                <label className="block mx-auto">
+                <label id="upload_label" className="block mx-auto">
                     <input
                         type="file"
-                        className="block w-full text-sm text-slate-500 file:mx-4 file:my-3 file:py-2 file:px-3 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-blue-400 file:text-white hover:file:bg-blue-600 "
+                        className="block w-full text-sm text-slate-500 file:mx-4 file:my-2.5 file:py-2 file:px-3 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-blue-400 file:text-white hover:file:bg-blue-600 "
                         onChange={(e) => uploadImage(e)}
                     />
                 </label>
 
-                <input type="text" id="name" value={name} onChange={onChange} />
-                <input
-                    type="text"
-                    id="email"
-                    value={email}
-                    onChange={onChange}
-                />
-                <textarea
-                    id="description"
-                    value={description}
-                    onChange={onChange}
-                />
-                <div className="userEdit__btn__block">
-                    <button className="userEdit__btn" type="submit">
+                <div id="edit_name" className="mb-2 rounded-lg bg-white">
+                    <input
+                        type="text"
+                        id="name"
+                        value={name}
+                        onChange={onChange}
+                        className="bg-transparent h-7 w-full rounded-lg text-black-500 ring-2 px-2 ring-indigo-400 focus:ring-sky-600 focus:outline-none"
+                        placeholder="이름"
+                    />
+                </div>
+
+                <div id="edit_email" className="mb-2 rounded-lg bg-white">
+                    <input
+                        type="text"
+                        id="email"
+                        value={email}
+                        className="bg-transparent h-7 w-full rounded-lg text-black-500 ring-2 px-2 ring-indigo-400 focus:ring-sky-600 focus:outline-none"
+                        onChange={onChange}
+                        placeholder="이메일"
+                    />
+                </div>
+
+                <div id="edit_description" className="mb-2 rounded-lg bg-white">
+                    <input
+                        id="description"
+                        value={description}
+                        className="bg-transparent h-7 w-full rounded-lg text-black-500 ring-2 px-2 ring-indigo-400 focus:ring-sky-600 focus:outline-none"
+                        onChange={onChange}
+                        placeholder="직업 설명"
+                    />
+                </div>
+
+                <div className="flex space-x-3 mt-1">
+                    <button className="bg-blue-400 hover:bg-blue-500 text-white font-medium py-1 px-3 rounded-full" type="submit">
                         확인
                     </button>
                     <button
-                        className="userEdit__btn__cancel"
+                        className="bg-red-300 hover:bg-red-400 text-white font-medium py-1 px-3 rounded-full"
                         onClick={() => setIsEdit((prev) => !prev)}
                     >
                         취소

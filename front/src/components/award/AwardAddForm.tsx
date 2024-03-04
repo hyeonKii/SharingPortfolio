@@ -48,10 +48,11 @@ export default function AwardAddForm({
 
     return (
         <>
-            <form className="award__addForm" onSubmit={handleSubmit}>
-                <div className="awardAddTitle">
+            <form className="flex flex-col items-center mt-5" onSubmit={handleSubmit}>
+                <div className="mb-2 rounded-lg bg-white">
                     <input
                         type="text"
+                        className="bg-transparent h-6 w-full rounded-lg text-black-500 ring-2 px-2 ring-indigo-400 focus:ring-sky-600 focus:outline-none"
                         placeholder="수상내역"
                         name="awardTitle"
                         value={awardForm.awardTitle}
@@ -59,9 +60,10 @@ export default function AwardAddForm({
                         required
                     />
                 </div>
-                <div className="awardAddDetail">
+                <div className="mb-2 rounded-lg bg-white">
                     <input
                         type="text"
+                        className="bg-transparent h-6 w-full rounded-lg text-black-500 ring-2 px-2 ring-indigo-400 focus:ring-sky-600 focus:outline-none"
                         placeholder="상세내용"
                         name="awardDetail"
                         value={awardForm.awardDetail}
@@ -70,12 +72,12 @@ export default function AwardAddForm({
                     />
                 </div>
 
-                <div className="awardAdd__btn__block">
-                    <button className="awardAdd__btn" type="submit">
+                <div className="flex space-x-3 mt-1">
+                    <button className="bg-blue-400 hover:bg-blue-500 text-white font-medium py-1 px-3 rounded-full" type="submit">
                         확인
                     </button>
                     <button
-                        className="awardAdd__btn__cancel"
+                        className="bg-red-300 hover:bg-red-400 text-white font-medium py-1 px-3 rounded-full"
                         onClick={() => setIsAdd((prev) => !prev)}
                     >
                         취소

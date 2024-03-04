@@ -1,6 +1,6 @@
 import {del} from "api/index";
 import {AxiosError} from "axios";
-import { toast } from "react-toastify";
+import {toast} from "react-toastify";
 
 interface EduCardProps {
     edu: EducationContentsProps;
@@ -13,7 +13,7 @@ export default function EducationCard({
     edu,
     setEdu,
     setIsEdit,
-    isEditable
+    isEditable,
 }: EduCardProps) {
     const handleDelete = async () => {
         window.confirm("삭제하시겠습니까?");
@@ -31,15 +31,31 @@ export default function EducationCard({
     };
 
     return (
-        <div className="eduCard__block">
-            <div className="eduSchool">{edu.school}</div>
-            <div className="eduDegree">{edu.major} ({edu.degree})</div>
+        <div className="flex items-center w-[230px] min-w-[230px] mt-3 p-1 mx-auto bg-indigo-100 rounded-lg shadow-xl">
+            <div className="flex-col w-[150px] min-w-[150px] text-sm px-2">
+                <div className="text-indigo-500 font-medium">학교: {edu.school}</div>
+                <div className="text-indigo-500 font-medium">전공: {edu.major}</div>
+                <div className="text-indigo-500 font-medium">졸업구분: {edu.degree}</div>
+            </div>
+
             {isEditable && (
-                <div className="edu__btn__block">
-                    <button onClick={() => setIsEdit((prev) => !prev)}>
-                        편집
-                    </button>
-                    <button onClick={handleDelete}>삭제</button>
+                <div className="flex-col min-w-[80px] space-y-1 pl-7">
+                    <div>
+                        <button
+                            className="bg-blue-400 hover:bg-blue-500 text-white font-medium py-0.5 px-2 rounded-lg"
+                            onClick={() => setIsEdit((prev) => !prev)}
+                        >
+                            편집
+                        </button>
+                    </div>
+                    <div>
+                        <button
+                            className="bg-red-300 hover:bg-red-400 text-white font-medium py-0.5 px-2 rounded-lg"
+                            onClick={handleDelete}
+                        >
+                            삭제
+                        </button>
+                    </div>
                 </div>
             )}
         </div>

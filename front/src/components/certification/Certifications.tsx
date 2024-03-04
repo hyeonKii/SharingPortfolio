@@ -13,7 +13,9 @@ export default function Certifications({userId, isEditable}: OwnerProps) {
 
     return (
         <div className="card__block">
-            <div className="card_title">자격증</div>
+            <div className="w-32 mx-auto bg-blue-400 rounded-full text-lg text-white font-bold text-center">
+                자격증
+            </div>
             {certificates.map((certificate) => (
                 <Certification
                     key={certificate.certiId}
@@ -30,9 +32,9 @@ export default function Certifications({userId, isEditable}: OwnerProps) {
                 />
             )}
             {isEditable && (
-                <div className="awards__editBtn__block">
+                <div className="flex justify-center mt-4">
                     <button
-                        className="awards__edit__btn"
+                        className="w-8 h-8 pb-0.5 border border-2 border-blue-500 rounded-lg text-blue-500 font-bold"
                         onClick={() => setIsAdd(true)}
                     >
                         +

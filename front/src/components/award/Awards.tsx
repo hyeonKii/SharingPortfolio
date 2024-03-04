@@ -18,7 +18,9 @@ export default function Awards({userId, isEditable}: OwnerProps) {
 
     return (
         <div className="card__block">
-            <div className="card_title">수상이력</div>
+            <div className="w-32 mx-auto bg-blue-400 rounded-full text-lg text-white font-bold text-center">
+                수상 이력
+            </div>
             {awards.map((award) => (
                 <Award
                     key={award.awardId}
@@ -35,9 +37,9 @@ export default function Awards({userId, isEditable}: OwnerProps) {
                 />
             )}
             {isEditable && (
-                <div className="awards__editBtn__block">
+                <div className="flex justify-center mt-4">
                     <button
-                        className="awards__edit__btn"
+                        className="w-8 h-8 pb-0.5 border border-2 border-blue-500 rounded-lg text-blue-500 font-bold"
                         onClick={() => setIsAdd(true)}
                     >
                         +
