@@ -52,7 +52,7 @@ export function Portfolio() {
                 <Loader />
             ) : (
                 <>
-                    <div className="main__frame">
+                    <div className="portfolio__frame">
                         <div className="portfolio__user">
                             <User
                                 userId={userInfo.id as string}

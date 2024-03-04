@@ -31,8 +31,8 @@ export function Network() {
 
     return (
         <>
-            <div className="main__frame">
-                <div className="search__block">
+            <div className="networking__frame">
+                <div className="flex justify-center items-center">
                     <form className="search__form">
                         <input
                             type="text"

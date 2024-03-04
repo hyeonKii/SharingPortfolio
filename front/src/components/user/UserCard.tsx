@@ -1,6 +1,7 @@
 import {UserStateContext} from "context/AuthContext";
 import {useContext} from "react";
 import {Link} from "react-router-dom";
+import {FaUserEdit} from "react-icons/fa";
 
 export default function UserCard({user, setIsEdit, isEditable}: UserCardProps) {
     const userState = useContext(UserStateContext);
@@ -11,33 +12,33 @@ export default function UserCard({user, setIsEdit, isEditable}: UserCardProps) {
 
     return (
         <>
-            <div className="card__block">
+            <div className="flex flex-col items-center mt-5">
                 <img
-                    className="card__image"
+                    className="w-28 h-28 rounded-full"
                     src={`http://localhost:5001/${user?.profileImageFilename}`}
                     alt="사용자 등록 프로필 이미지"
-                    style={{
-                        width: "7rem",
-                        height: "7rem",
-                        borderRadius: "10px",
-                    }}
                 />
-                <div className="card__title">{user?.name}</div>
-                <div className="card__email">{user?.email}</div>
-                <div className="card__description">{user?.description}</div>
+                <div className="mt-5 mb-1 text-xl text-indigo-600 font-bold">
+                    {user?.name}
+                </div>
+                <div className="mb-1 text-sm font-medium text-gray-700">
+                    {user?.email}
+                </div>
+                <div className="w-2/3 mb-5 text-xs text-gray-700 text-center">
+                    {user?.description}
+                </div>
                 {isEditable && (
-                    <div className="card__edit__block">
+                    <div>
                         <button
-                            className="card__edit__btn"
+                            className="bg-blue-500 hover:bg-blue-700 text-white font-medium py-1 px-3 rounded-full"
                             onClick={() => completedEdit(true)}
                         >
-                            편집
+                            {/* 편집 */}
+                            <FaUserEdit className="w-5 h-5 mx-1 text-center" />
                         </button>
                     </div>
                 )}
-                {user?.id === userState?.user?.id ? (
-                    <Link to={`/users/${user?.id}`}>내 포트폴리오 이동</Link>
-                ) : (
+                {user?.id !== userState?.user?.id && (
                     <Link to={`/users/${user?.id}`}>포트폴리오 탐색하기</Link>
                 )}
             </div>
