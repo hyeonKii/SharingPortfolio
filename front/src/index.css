@@ -80,7 +80,7 @@ body {
     z-index: 1;
 
     transform-origin: 4px 0px;
-    transition: transform 0.3s, background 0.4s, opacity 0.4s ease;
+    transition: transform 0.3s,background 0.4s, opacity 0.4s ease;
 }
 
 .menu {
@@ -166,7 +166,7 @@ body {
     grid-auto-rows: 48%;
 
     width: 60vw;
-    min-width: 920px;
+    min-width: 960px;
     height: 80vh;
     min-height: 500px;
 
@@ -175,6 +175,8 @@ body {
     border: none;
     border-radius: 10px;
     box-shadow: 5px 5px 10px rgba(35, 35, 35, 0.4);
+
+    /* backdrop-filter: blur(100px); */
 
     background: radial-gradient(
         rgb(111, 171, 255, 0.8),
@@ -203,8 +205,8 @@ body {
 }
 /* 학력 프레임 */
 .portfolio__edu {
-    width: 90%;
-    min-width: 250px;
+    width: 95%;
+    min-width: 280px;
     height: 95%;
     margin: 20px 5px;
     padding: 10px;
@@ -214,8 +216,8 @@ body {
 }
 /* 수상이력 프레임 */
 .portfolio__award {
-    width: 90%;
-    min-width: 250px;
+    width: 95%;
+    min-width: 280px;
     height: 95%;
     margin: 20px 5px;
     padding: 10px;
@@ -225,8 +227,8 @@ body {
 }
 /* 자격증 프레임 */
 .portfolio__certification {
-    width: 90%;
-    min-width: 250px;
+    width: 95%;
+    min-width: 280px;
     height: 95%;
     margin: 20px 5px;
     padding: 10px;
@@ -236,8 +238,8 @@ body {
 }
 /* 프로젝트 이력 프레임*/
 .portfolio__project {
-    width: 90%;
-    min-width: 250px;
+    width: 95%;
+    min-width: 280px;
     height: 95%;
     margin: 20px 5px;
     padding: 10px;

@@ -92,10 +92,10 @@ export default function UserEditForm({
                         alt="사용자 등록 프로필 이미지"
                     />
                 )}
-                <label id="upload_label" className="block mx-auto">
+                <label id="upload_label" className="flex mx-auto">
                     <input
                         type="file"
-                        className="block w-full text-sm text-slate-500 file:mx-4 file:my-2.5 file:py-2 file:px-3 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-blue-400 file:text-white hover:file:bg-blue-600 "
+                        className="block w-full text-sm text-slate-500 file:my-2.5 file:py-2 file:px-3 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-blue-400 file:text-white hover:file:bg-blue-600 "
                         onChange={(e) => uploadImage(e)}
                     />
                 </label>
@@ -133,7 +133,10 @@ export default function UserEditForm({
                 </div>
 
                 <div className="flex space-x-3 mt-1">
-                    <button className="bg-blue-400 hover:bg-blue-500 text-white font-medium py-1 px-3 rounded-full" type="submit">
+                    <button
+                        className="bg-blue-400 hover:bg-blue-500 text-white font-medium py-1 px-3 rounded-full"
+                        type="submit"
+                    >
                         확인
                     </button>
                     <button

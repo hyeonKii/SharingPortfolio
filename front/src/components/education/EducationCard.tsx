@@ -31,15 +31,15 @@ export default function EducationCard({
     };
 
     return (
-        <div className="flex items-center w-[230px] min-w-[230px] mt-3 p-1 mx-auto bg-indigo-100 rounded-lg shadow-xl">
-            <div className="flex-col w-[150px] min-w-[150px] text-sm px-2">
+        <div className="flex items-center w-[260px] min-w-[250px] mt-3 p-1 mx-auto bg-indigo-100 rounded-lg shadow-xl">
+            <div className="flex-col w-[150px] min-w-[150px] text-sm px-1">
                 <div className="text-indigo-500 font-medium">학교: {edu.school}</div>
                 <div className="text-indigo-500 font-medium">전공: {edu.major}</div>
                 <div className="text-indigo-500 font-medium">졸업구분: {edu.degree}</div>
             </div>
 
             {isEditable && (
-                <div className="flex-col min-w-[80px] space-y-1 pl-7">
+                <div className="flex-col min-w-[80px] space-y-1 pl-12">
                     <div>
                         <button
                             className="bg-blue-400 hover:bg-blue-500 text-white font-medium py-0.5 px-2 rounded-lg"
