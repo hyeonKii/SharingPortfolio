@@ -16,19 +16,22 @@ export default function AwardCard({
     isEditable,
 }: AwardCardProps) {
     const handleDelete = async () => {
-        window.confirm("삭제하시겠습니까?");
-        try {
-            await del(`award/${award.awardId}`);
-            setAwards((arr) => {
-                const newArr = arr.filter(
-                    (obj) => obj.awardId !== award.awardId
-                );
-                return newArr;
-            });
-        } catch (e) {
-            if (e instanceof AxiosError) {
-                toast.error(e.message);
+        if (window.confirm("삭제하시겠습니까?")) {
+            try {
+                await del(`award/${award.awardId}`);
+                setAwards((arr) => {
+                    const newArr = arr.filter(
+                        (obj) => obj.awardId !== award.awardId
+                    );
+                    return newArr;
+                });
+            } catch (e) {
+                if (e instanceof AxiosError) {
+                    toast.error(e.message);
+                }
             }
+        } else {
+            return;
         }
     };
     return (

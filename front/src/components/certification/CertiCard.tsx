@@ -16,19 +16,22 @@ export default function CertiCard({
     isEditable,
 }: CertiCardProps) {
     const handleDelete = async () => {
-        window.confirm("삭제하시겠습니까?");
-        try {
-            await del(`certi/${certificate.certiId}`);
-            setCertificates((arr) => {
-                const newArr = arr.filter(
-                    (obj) => obj.certiId !== certificate.certiId
-                );
-                return newArr;
-            });
-        } catch (e) {
-            if (e instanceof AxiosError) {
-                toast.error(e.message);
+        if (window.confirm("삭제하시겠습니까?")) {
+            try {
+                await del(`certi/${certificate.certiId}`);
+                setCertificates((arr) => {
+                    const newArr = arr.filter(
+                        (obj) => obj.certiId !== certificate.certiId
+                    );
+                    return newArr;
+                });
+            } catch (e) {
+                if (e instanceof AxiosError) {
+                    toast.error(e.message);
+                }
             }
+        } else {
+            return;
         }
     };
 

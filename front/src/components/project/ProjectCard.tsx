@@ -16,19 +16,22 @@ export default function ProjectCard({
     isEditable,
 }: ProjectCardProps) {
     const handleDelete = async () => {
-        window.confirm("삭제하시겠습니까?");
-        try {
-            await del(`project/${project.projId}`);
-            setProjects((arr) => {
-                const newArr = arr.filter(
-                    (obj) => obj.projId !== project.projId
-                );
-                return newArr;
-            });
-        } catch (e) {
-            if (e instanceof AxiosError) {
-                toast.error(e.message);
+        if (window.confirm("삭제하시겠습니까?")) {
+            try {
+                await del(`project/${project.projId}`);
+                setProjects((arr) => {
+                    const newArr = arr.filter(
+                        (obj) => obj.projId !== project.projId
+                    );
+                    return newArr;
+                });
+            } catch (e) {
+                if (e instanceof AxiosError) {
+                    toast.error(e.message);
+                }
             }
+        } else {
+            return;
         }
     };
     return (

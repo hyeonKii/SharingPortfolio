@@ -15,27 +15,40 @@ export default function EducationCard({
     setIsEdit,
     isEditable,
 }: EduCardProps) {
+
     const handleDelete = async () => {
-        window.confirm("삭제하시겠습니까?");
-        try {
-            await del(`edu/${edu.eduId}`);
-            setEdu((arr) => {
-                const newArr = arr.filter((obj) => obj.eduId !== edu.eduId);
-                return newArr;
-            });
-        } catch (e) {
-            if (e instanceof AxiosError) {
-                toast.error(e.message);
+        if (window.confirm("삭제하시겠습니까?")) {
+            try {
+                await del(`edu/${edu.eduId}`);
+                setEdu((arr) => {
+                    const newArr = arr.filter((obj) => obj.eduId !== edu.eduId);
+                    return newArr;
+                });
+            } catch (e) {
+                if (e instanceof AxiosError) {
+                    toast.error(e.message);
+                }
             }
+        } else {
+            return;
         }
     };
+
+
+
 
     return (
         <div className="flex items-center w-[260px] min-w-[250px] mt-3 p-1 mx-auto bg-indigo-100 rounded-lg shadow-xl">
             <div className="flex-col w-[150px] min-w-[150px] text-sm px-1">
-                <div className="text-indigo-500 font-medium">학교: {edu.school}</div>
-                <div className="text-indigo-500 font-medium">전공: {edu.major}</div>
-                <div className="text-indigo-500 font-medium">졸업구분: {edu.degree}</div>
+                <div className="text-indigo-500 font-medium">
+                    학교: {edu.school}
+                </div>
+                <div className="text-indigo-500 font-medium">
+                    전공: {edu.major}
+                </div>
+                <div className="text-indigo-500 font-medium">
+                    졸업구분: {edu.degree}
+                </div>
             </div>
 
             {isEditable && (
