@@ -43,7 +43,7 @@ export function Network() {
                         />
                     </form>
                 </div>
-                <div className="userCard__block">
+                <div className="searchResult__block">
                     {users
                         .filter((data) =>
                             search === "" ? data : data.name?.includes(search)

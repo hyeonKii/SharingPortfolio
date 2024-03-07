@@ -250,6 +250,11 @@ body {
 
 /* 네트워크 프레임 */
 .networking__frame {
+    display: flex;
+    flex-direction: column;
+}
+
+.searchResult__block {
     display: grid;
     /* grid-template-columns: 1fr; */
     grid-auto-rows: 15%;
@@ -270,3 +275,4 @@ body {
         rgba(246, 246, 246, 0.8)
     );
 }
+

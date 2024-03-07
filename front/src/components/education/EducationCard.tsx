@@ -15,7 +15,6 @@ export default function EducationCard({
     setIsEdit,
     isEditable,
 }: EduCardProps) {
-
     const handleDelete = async () => {
         if (window.confirm("삭제하시겠습니까?")) {
             try {
@@ -33,9 +32,6 @@ export default function EducationCard({
             return;
         }
     };
-
-
-
 
     return (
         <div className="flex items-center w-[260px] min-w-[250px] mt-3 p-1 mx-auto bg-indigo-100 rounded-lg shadow-xl">
