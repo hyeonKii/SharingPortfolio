@@ -115,7 +115,10 @@ export default function CertiEditForm({
                     </button>
                     <button
                         className="bg-red-300 hover:bg-red-400 text-white font-medium py-1 px-3 rounded-full"
-                        onClick={() => setIsEdit((prev) => !prev)}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            setIsEdit((prev) => !prev);
+                        }}
                     >
                         취소
                     </button>

@@ -24,13 +24,13 @@ export default function UserCard({user, setIsEdit, isEditable}: UserCardProps) {
                 <div className="mb-1 text-sm font-medium text-gray-700">
                     {user?.email}
                 </div>
-                <div className="w-2/3 mb-5 text-xs text-gray-700 text-center">
+                <div className="w-2/3 text-xs text-gray-700 text-center">
                     {user?.description}
                 </div>
                 {isEditable && (
                     <div>
                         <button
-                            className="bg-blue-500 hover:bg-blue-700 text-white font-medium py-1 px-3 rounded-full"
+                            className="mt-5 bg-blue-500 hover:bg-blue-700 text-white font-medium py-1 px-3 rounded-full"
                             onClick={() => completedEdit(true)}
                         >
                             {/* 편집 */}
@@ -39,7 +39,11 @@ export default function UserCard({user, setIsEdit, isEditable}: UserCardProps) {
                     </div>
                 )}
                 {user?.id !== userState?.user?.id && (
-                    <Link to={`/users/${user?.id}`}>포트폴리오 탐색하기</Link>
+                    <div className="my-2 text-xs text-blue-700 underline">
+                        <Link to={`/users/${user?.id}`}>
+                            포트폴리오 탐색
+                        </Link>
+                    </div>
                 )}
             </div>
         </>

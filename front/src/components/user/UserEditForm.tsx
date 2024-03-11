@@ -108,6 +108,7 @@ export default function UserEditForm({
                         onChange={onChange}
                         className="bg-transparent h-7 w-full rounded-lg text-black-500 ring-2 px-2 ring-indigo-400 focus:ring-sky-600 focus:outline-none"
                         placeholder="이름"
+                        required
                     />
                 </div>
 
@@ -119,6 +120,7 @@ export default function UserEditForm({
                         className="bg-transparent h-7 w-full rounded-lg text-black-500 ring-2 px-2 ring-indigo-400 focus:ring-sky-600 focus:outline-none"
                         onChange={onChange}
                         placeholder="이메일"
+                        required
                     />
                 </div>
 
@@ -129,6 +131,7 @@ export default function UserEditForm({
                         className="bg-transparent h-7 w-full rounded-lg text-black-500 ring-2 px-2 ring-indigo-400 focus:ring-sky-600 focus:outline-none"
                         onChange={onChange}
                         placeholder="직업 설명"
+                        required
                     />
                 </div>
 
@@ -141,7 +144,10 @@ export default function UserEditForm({
                     </button>
                     <button
                         className="bg-red-300 hover:bg-red-400 text-white font-medium py-1 px-3 rounded-full"
-                        onClick={() => setIsEdit((prev) => !prev)}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            setIsEdit((prev) => !prev);
+                        }}
                     >
                         취소
                     </button>

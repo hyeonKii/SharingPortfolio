@@ -1,7 +1,7 @@
 import {put} from "api/index";
 import {AxiosError} from "axios";
 import {useState} from "react";
-import { toast } from "react-toastify";
+import {toast} from "react-toastify";
 
 interface EducationFixProps {
     edu: EducationContentsProps;
@@ -65,7 +65,10 @@ export default function EducationEditForm({
 
     return (
         <>
-            <form className="flex flex-col items-center mt-5" onSubmit={handleSubmit}>
+            <form
+                className="flex flex-col items-center mt-5"
+                onSubmit={handleSubmit}
+            >
                 <div className="mb-2 rounded-lg bg-white">
                     <input
                         type="text"
@@ -135,12 +138,18 @@ export default function EducationEditForm({
                     </div>
                 </div>
                 <div className="flex space-x-3 mt-1">
-                    <button className="bg-blue-400 hover:bg-blue-500 text-white font-medium py-1 px-3 rounded-full" type="submit">
+                    <button
+                        className="bg-blue-400 hover:bg-blue-500 text-white font-medium py-1 px-3 rounded-full"
+                        type="submit"
+                    >
                         확인
                     </button>
                     <button
                         className="bg-red-300 hover:bg-red-400 text-white font-medium py-1 px-3 rounded-full"
-                        onClick={() => setIsEdit((prev) => !prev)}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            setIsEdit((prev) => !prev);
+                        }}
                     >
                         취소
                     </button>

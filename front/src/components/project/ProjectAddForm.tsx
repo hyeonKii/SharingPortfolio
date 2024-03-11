@@ -112,7 +112,10 @@ export default function ProjectAddForm({
                     </button>
                     <button
                         className="bg-red-300 hover:bg-red-400 text-white font-medium py-1 px-3 rounded-full"
-                        onClick={() => setIsAdd((prev) => !prev)}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            setIsAdd((prev) => !prev);
+                        }}
                     >
                         취소
                     </button>

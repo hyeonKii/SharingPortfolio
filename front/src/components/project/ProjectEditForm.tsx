@@ -116,7 +116,10 @@ export default function ProjectEditForm({
                     </button>
                     <button
                         className="projectEdit__btn__cancel"
-                        onClick={() => setIsEdit((prev) => !prev)}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            setIsEdit((prev) => !prev);
+                        }}
                     >
                         취소
                     </button>
