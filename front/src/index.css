@@ -203,49 +203,32 @@ body {
     box-shadow: 5px 5px 10px rgba(35, 35, 35, 0.4);
     padding: 10px;
 }
-/* 학력 프레임 */
-.portfolio__edu {
+/* 개인정보 프레임 */
+.portfolio__detail {
     width: 95%;
     min-width: 280px;
     height: 95%;
     margin: 20px 5px;
     padding: 10px;
+
+    overflow: auto;
 
     border-radius: 10px;
     box-shadow: 5px 5px 10px rgba(35, 35, 35, 0.4);
 }
-/* 수상이력 프레임 */
-.portfolio__award {
-    width: 95%;
-    min-width: 280px;
-    height: 95%;
-    margin: 20px 5px;
-    padding: 10px;
 
-    border-radius: 10px;
-    box-shadow: 5px 5px 10px rgba(35, 35, 35, 0.4);
+/* 카드 블록 스크롤*/
+.portfolio__detail::-webkit-scrollbar {
+    width: 8px;
 }
-/* 자격증 프레임 */
-.portfolio__certification {
-    width: 95%;
-    min-width: 280px;
-    height: 95%;
-    margin: 20px 5px;
-    padding: 10px;
 
-    border-radius: 10px;
-    box-shadow: 5px 5px 10px rgba(35, 35, 35, 0.4);
+.portfolio__detail::-webkit-scrollbar-thumb {
+    background-color: rgb(85, 95, 206, 0.4);
+    border-radius: 20px;
 }
-/* 프로젝트 이력 프레임*/
-.portfolio__project {
-    width: 95%;
-    min-width: 280px;
-    height: 95%;
-    margin: 20px 5px;
-    padding: 10px;
-
-    border-radius: 10px;
-    box-shadow: 5px 5px 10px rgba(35, 35, 35, 0.4);
+.portfolio__detail::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 20px;
 }
 
 /* 네트워크 프레임 */

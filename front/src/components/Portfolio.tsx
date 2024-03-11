@@ -59,25 +59,25 @@ export function Portfolio() {
                                 isEditable={userInfo.id === userState.user?.id}
                             />
                         </div>
-                        <div className="portfolio__edu">
+                        <div className="portfolio__detail">
                             <Educations
                                 userId={userInfo.id as string}
                                 isEditable={userInfo.id === userState.user?.id}
                             />
                         </div>
-                        <div className="portfolio__award">
+                        <div className="portfolio__detail">
                             <Awards
                                 userId={userInfo.id as string}
                                 isEditable={userInfo.id === userState.user?.id}
                             />
                         </div>
-                        <div className="portfolio__certification">
+                        <div className="portfolio__detail">
                             <Certifications
                                 userId={userInfo.id as string}
                                 isEditable={userInfo.id === userState.user?.id}
                             />
                         </div>
-                        <div className="portfolio__project">
+                        <div className="portfolio__detail">
                             <Projects
                                 userId={userInfo.id as string}
                                 isEditable={userInfo.id === userState.user?.id}

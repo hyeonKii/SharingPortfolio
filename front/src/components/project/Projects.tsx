@@ -14,8 +14,20 @@ export default function Projects({userId, isEditable}: OwnerProps) {
     return (
         <>
             <div className="card__block">
-                <div className="w-32 mx-auto bg-blue-400 rounded-full text-lg text-white font-bold text-center">
-                    프로젝트
+                <div className="flex flex-row items-center px-4">
+                    <div className="w-24 h-8 mx-auto pt-0.5 bg-blue-400 rounded-full text-lg text-white font-bold text-center">
+                        프로젝트
+                    </div>
+                    {isEditable && (
+                        <div>
+                            <button
+                                className="w-8 h-8 pb-0.5 border border-2 border-blue-500 rounded-lg text-blue-500 font-bold"
+                                onClick={() => setIsAdd(true)}
+                            >
+                                +
+                            </button>
+                        </div>
+                    )}
                 </div>
                 {projects.map((project) => (
                     <Project
@@ -31,16 +43,6 @@ export default function Projects({userId, isEditable}: OwnerProps) {
                         setProjects={setProjects}
                         setIsAdd={setIsAdd}
                     />
-                )}
-                {isEditable && (
-                    <div className="flex justify-center mt-4">
-                        <button
-                            className="w-8 h-8 pb-0.5 border border-2 border-blue-500 rounded-lg text-blue-500 font-bold"
-                            onClick={() => setIsAdd(true)}
-                        >
-                            +
-                        </button>
-                    </div>
                 )}
             </div>
         </>
