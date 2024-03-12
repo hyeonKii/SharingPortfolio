@@ -1,5 +1,3 @@
-
-
 export function loginReducer(userState: IUserState, action: IAction) {
     switch (action.type) {
         case "LOGIN_SUCCESS":

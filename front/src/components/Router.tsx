@@ -4,7 +4,6 @@ import {PortfolioPage} from "pages/portfolio";
 import {RegisterPage} from "pages/register";
 import {Route, Routes} from "react-router-dom";
 
-
 interface RouterProps {
     isAuth: boolean;
 }
