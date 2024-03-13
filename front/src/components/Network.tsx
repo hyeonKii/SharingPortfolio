@@ -33,7 +33,8 @@ export function Network() {
         <>
             <div className="networking__frame">
                 <div className="networking__container">
-                    <div className="flex my-7 justify-center items-center">
+                    <div className="flex flex-col my-5 justify-center items-center">
+                        <div className="text-2xl text-indigo-600 font-medium mb-5">Networking</div>
                         <div className="mb-2 rounded-lg bg-white">
                             <input
                                 type="text"
