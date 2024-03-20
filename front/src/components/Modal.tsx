@@ -1,13 +1,13 @@
-import {ReactNode} from "react";
+// import {ReactNode} from "react";
 
-interface IModal {
-    children: ReactNode;
-}
+// interface IModal {
+//     children: ReactNode;
+// }
 
-export function Modal({children}: IModal) {
+export function Modal() {
     return (
         <>
-            <div className="w-full h-screen bg-slate-500">{children}</div>
+            <div className="w-full h-screen bg-slate-500"></div>
         </>
     );
 }

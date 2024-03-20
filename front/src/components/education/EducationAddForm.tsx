@@ -30,6 +30,13 @@ export default function EducationAddForm({
         }));
     };
 
+    const onSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        setEducationForm((prev) => ({
+            ...prev,
+            degree: e.target.value,
+        }));
+    };
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const id = userId;
@@ -75,51 +82,16 @@ export default function EducationAddForm({
                         required
                     />
                 </div>
-                <div className="eduAddDegree__block">
-                    <div className="eduAddDegree">
-                        <label htmlFor="재학중">재학중</label>
-                        <input
-                            id="radio1"
-                            type="radio"
-                            name="degree"
-                            value="재학중"
-                            checked={educationForm.degree === "재학중"}
-                            onChange={onChange}
-                        />
-                    </div>
-                    <div className="eduAddDegree">
-                        <label htmlFor="학사졸업">학사졸업</label>
-                        <input
-                            id="radio2"
-                            type="radio"
-                            name="degree"
-                            value="학사졸업"
-                            checked={educationForm.degree === "학사졸업"}
-                            onChange={onChange}
-                        />
-                    </div>
-                    <div className="eduAddDegree">
-                        <label htmlFor="석사졸업">석사졸업</label>
-                        <input
-                            id="radio3"
-                            type="radio"
-                            name="degree"
-                            value="석사졸업"
-                            checked={educationForm.degree === "석사졸업"}
-                            onChange={onChange}
-                        />
-                    </div>
-                    <div className="eduAddDegree">
-                        <label htmlFor="박사졸업">박사졸업</label>
-                        <input
-                            id="radio4"
-                            type="radio"
-                            name="degree"
-                            value="박사졸업"
-                            checked={educationForm.degree === "박사졸업"}
-                            onChange={onChange}
-                        />
-                    </div>
+                <div className="mb-2">
+                    <select onChange={onSelectChange} className="w-full h-6 rounded-lg ring-2 px-3 mr-3 ring-indigo-400 focus:ring-sky-600 focus:outline-none">
+                        <option disabled selected>
+                            학위를 골라주세요
+                        </option>
+                        <option value="재학중">재학중</option>
+                        <option value="학사졸업">학사졸업</option>
+                        <option value="석사졸업">석사졸업</option>
+                        <option value="박사졸업">박사졸업</option>
+                    </select>
                 </div>
                 <div className="flex space-x-3 mt-1">
                     <button
