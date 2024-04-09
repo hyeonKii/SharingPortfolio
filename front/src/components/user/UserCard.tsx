@@ -15,7 +15,7 @@ export default function UserCard({user, setIsEdit, isEditable}: UserCardProps) {
             <div className="flex flex-col items-center mt-5">
                 <img
                     className="w-28 h-28 rounded-full"
-                    src={`http://localhost:5001/${user?.profileImageFilename}`}
+                    src={`${import.meta.env.VITE_BASE_URL}/${user?.profileImageFilename}`}
                     alt="사용자 등록 프로필 이미지"
                 />
                 <div className="mt-5 mb-1 text-xl text-indigo-600 font-bold">

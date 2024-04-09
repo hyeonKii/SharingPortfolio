@@ -7,7 +7,8 @@ const API = axios.create({
     },
 });
 
-//서버로 요청 보내기 전 interceptors를 활용해 세션스토리지에서 이전에 서버에서 받은 토큰을 header 설정 후에 요청 
+//서버로 요청 보내기 전 interceptors를 활용해 
+//세션스토리지에서 이전에 서버에서 받은 토큰을 header 설정 후에 요청 
 API.interceptors.request.use((config) => {
     const accessToken = sessionStorage.getItem("userToken");
     config.headers["Authorization"] = `Bearer ${accessToken}`;

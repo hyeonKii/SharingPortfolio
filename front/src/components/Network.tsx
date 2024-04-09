@@ -11,20 +11,6 @@ export function Network() {
     const [users, setUsers] = useState<UserProps[]>([]);
     const [search, setSearch] = useState<string>("");
 
-    // const sortByNameASC = () => {
-    //     const sortedUser = [...users].sort(
-    //         (a, b) => -a.name.localeCompare(b.name)
-    //     );
-    //     setUsers(sortedUser);
-    // };
-
-    // const sortByNameDESC = () => {
-    //     const sortedUser = [...users].sort((a, b) =>
-    //         a.name.localeCompare(b.name)
-    //     );
-    //     setUsers(sortedUser);
-    // };
-
     useEffect(() => {
         get("userlist").then((users) => setUsers(users));
     }, [userState, navigate]);

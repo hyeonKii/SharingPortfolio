@@ -2,14 +2,12 @@ import {get} from "api/index";
 import {useEffect, useState} from "react";
 import Education from "./Education";
 import EducationAddForm from "./EducationAddForm";
-// import {ModalContext} from "context/ModalContext";
-// import {Modal} from "components/Modal";
 
 export default function Educations({userId, isEditable}: OwnerProps) {
     const [educations, setEducations] = useState<EducationContentsProps[]>([]);
     const [isAdd, setIsAdd] = useState(false);
 
-    // const {openModal} = useContext(ModalContext);
+    
 
     useEffect(() => {
         get("edu", userId).then((educationList) => {
@@ -44,13 +42,11 @@ export default function Educations({userId, isEditable}: OwnerProps) {
                     />
                 ))}
                 {isAdd && (
-                    // <Modal openModal={openModal}>
                     <EducationAddForm
                         userId={userId}
                         setIsAdd={setIsAdd}
                         setEdu={setEducations}
                     />
-                    // </Modal>
                 )}
             </div>
         </>

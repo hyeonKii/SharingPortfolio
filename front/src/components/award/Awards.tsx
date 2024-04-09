@@ -13,9 +13,6 @@ export default function Awards({userId, isEditable}: OwnerProps) {
         });
     }, [userId]);
 
-    // awards.map 사용 시 컴포넌트를 return할 때는 {}가 아닌 () 사용해야 한다.
-    // awards를 props로 넘겨줄 때 타입 지정을 어떻게 할지 제대로 구상해야 한다.
-
     return (
         <div className="card__block">
             <div className="flex flex-row items-center px-4">
