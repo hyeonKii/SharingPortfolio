@@ -2,7 +2,11 @@ import {useState} from "react";
 import AwardEditForm from "./AwardEditForm";
 import AwardCard from "./AwardCard";
 
-export default function Award({award, setAwards, isEditable}: AwardProps) {
+export default function Award({
+    award,
+    setAwards,
+    isEditable,
+}: Pick<AwardDetailProps, "award" | "setAwards" | "isEditable">) {
     const [isEdit, setIsEdit] = useState(false);
 
     const toggleEdit = () => {

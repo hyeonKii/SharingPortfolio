@@ -1,22 +1,22 @@
 interface UserProps {
-    id?: string;
-    email?: string;
-    name?: string;
-    password?: string;
-    description?: string;
-    createdAt?: string;
-    updatedAt?: string;
-    _id?: string;
-    profileImageFilename?: string;
+    id: string;
+    email: string;
+    name: string;
+    password: string;
+    description: string;
+    createdAt: string;
+    updatedAt: string;
+    _id: string;
+    profileImageFilename: string;
 }
 
 interface IUserState {
-    user?: UserProps | null;
+    user: Partial<UserProps> | null;
 }
 
 interface IAction {
     type: string;
-    payload?: UserProps | null;
+    payload: Partial<UserProps> | null;
 }
 
 interface OwnerProps {
@@ -24,16 +24,11 @@ interface OwnerProps {
     isEditable: boolean;
 }
 
-interface UserEditProps {
-    user: UserProps | null;
+interface UserDetailProps {
+    user: Partial<UserProps> | null;
     setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
-    setUser: React.Dispatch<React.SetStateAction<UserProps>>;
-}
-
-interface UserCardProps {
-    user: UserProps | null;
-    setIsEdit?: React.Dispatch<React.SetStateAction<boolean>>;
-    isEditable?: boolean;
+    setUser: React.Dispatch<React.SetStateAction<Partial<UserProps>>>;
+    isEditable: boolean;
 }
 
 interface AwardContentsProps {
@@ -42,9 +37,12 @@ interface AwardContentsProps {
     awardDetail: string;
 }
 
-interface AwardProps {
+interface AwardDetailProps {
+    userId: string;
     award: AwardContentsProps;
-    setAwards: React.Dispatch<React.SetStateAction<AwardContentsProps[]>>
+    setAwards: React.Dispatch<React.SetStateAction<AwardContentsProps[]>>;
+    setIsAdd: Dispatch<SetStateAction<boolean>>;
+    setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
     isEditable: boolean;
 }
 
@@ -57,7 +55,7 @@ interface EducationContentsProps {
 
 interface EducationProps {
     edu: EducationContentsProps;
-    setEdu: React.Dispatch<React.SetStateAction<EducationContentsProps[]>>
+    setEdu: React.Dispatch<React.SetStateAction<EducationContentsProps[]>>;
     isEditable: boolean;
 }
 
@@ -70,7 +68,7 @@ interface CertiContentsProps {
 
 interface CertificationProps {
     certificate: CertiContentsProps;
-    setCertificates: React.Dispatch<React.SetStateAction<CertiContentsProps[]>>
+    setCertificates: React.Dispatch<React.SetStateAction<CertiContentsProps[]>>;
     isEditable: boolean;
 }
 
@@ -84,6 +82,6 @@ interface ProjectContentsProps {
 
 interface ProjectProps {
     project: ProjectContentsProps;
-    setProjects: React.Dispatch<React.SetStateAction<ProjectContentsProps[]>>
+    setProjects: React.Dispatch<React.SetStateAction<ProjectContentsProps[]>>;
     isEditable: boolean;
 }

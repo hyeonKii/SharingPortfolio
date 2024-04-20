@@ -13,7 +13,7 @@ export function Header() {
 
     const logout = () => {
         sessionStorage.removeItem("userToken");
-        dispatch({type: "LOGOUT"});
+        dispatch({type: "LOGOUT", payload: null});
         toast.success("로그아웃 되었습니다!");
         navigate("/");
     };

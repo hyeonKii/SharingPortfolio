@@ -8,7 +8,7 @@ export default function UserEditForm({
     user,
     setIsEdit,
     setUser,
-}: UserEditProps) {
+}: Omit<UserDetailProps, "isEditable">) {
     const [name, setName] = useState(user?.name);
     const [email, setEmail] = useState(user?.email);
     const [description, setDescription] = useState(user?.description);

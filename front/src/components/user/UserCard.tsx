@@ -3,7 +3,7 @@ import {useContext} from "react";
 import {Link} from "react-router-dom";
 import {FaUserEdit} from "react-icons/fa";
 
-export default function UserCard({user, setIsEdit, isEditable}: UserCardProps) {
+export default function UserCard({user, setIsEdit, isEditable}: Partial<UserDetailProps>) {
     const userState = useContext(UserStateContext);
 
     const completedEdit = setIsEdit as React.Dispatch<

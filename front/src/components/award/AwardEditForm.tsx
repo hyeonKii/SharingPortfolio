@@ -3,17 +3,11 @@ import {AxiosError} from "axios";
 import {useState} from "react";
 import {toast} from "react-toastify";
 
-interface AwardFixProps {
-    award: AwardContentsProps;
-    setAwards: React.Dispatch<React.SetStateAction<AwardContentsProps[]>>;
-    setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
 export default function AwardEditForm({
     award,
     setAwards,
     setIsEdit,
-}: AwardFixProps) {
+}: Pick<AwardDetailProps, "award" | "setAwards" | "setIsEdit">) {
     const [awardForm, setAwardForm] = useState({
         awardId: award.awardId,
         awardTitle: award.awardTitle,

@@ -1,19 +1,13 @@
 import {post} from "api/index";
 import {AxiosError} from "axios";
-import {Dispatch, SetStateAction, useState} from "react";
+import {useState} from "react";
 import {toast} from "react-toastify";
-
-interface AwardAddProps {
-    userId: string;
-    setAwards: React.Dispatch<React.SetStateAction<AwardContentsProps[]>>;
-    setIsAdd: Dispatch<SetStateAction<boolean>>;
-}
 
 export default function AwardAddForm({
     userId,
     setAwards,
     setIsAdd,
-}: AwardAddProps) {
+}: Pick<AwardDetailProps, "userId" | "setAwards" | "setIsAdd">) {
     const [awardForm, setAwardForm] = useState({
         awardTitle: "",
         awardDetail: "",
@@ -38,7 +32,7 @@ export default function AwardAddForm({
                 ...awardForm,
             });
             setAwards((prev) => [...prev, res]);
-            setIsAdd((prev) => !prev);
+            setIsAdd((prev: boolean) => !prev);
         } catch (e) {
             if (e instanceof AxiosError) {
                 toast.error(e.message);
@@ -86,7 +80,7 @@ export default function AwardAddForm({
                         className="bg-red-300 hover:bg-red-400 text-white font-medium py-1 px-3 rounded-full"
                         onClick={(e) => {
                             e.preventDefault();
-                            setIsAdd((prev) => !prev);
+                            setIsAdd((prev: boolean) => !prev);
                         }}
                     >
                         취소

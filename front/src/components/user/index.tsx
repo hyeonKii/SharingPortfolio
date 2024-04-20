@@ -5,7 +5,7 @@ import UserCard from "./UserCard";
 
 export default function User({userId, isEditable}: OwnerProps) {
     const [isEdit, setIsEdit] = useState<boolean>(false);
-    const [user, setUser] = useState<UserProps>({});
+    const [user, setUser] = useState<Partial<UserProps>>({});
 
     useEffect(() => {
         get("users", userId).then((user) => setUser(user));

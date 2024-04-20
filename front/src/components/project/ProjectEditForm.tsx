@@ -75,10 +75,11 @@ export default function ProjectEditForm({
 
     return (
         <>
-            <form className="project__addForm" onSubmit={handleSubmit}>
-                <div className="projectAddTitle">
+            <form className="flex flex-col items-center mt-5" onSubmit={handleSubmit}>
+                <div className="mb-2 rounded-lg bg-white">
                     <input
                         type="text"
+                        className="bg-transparent h-6 w-full rounded-lg text-black-500 ring-2 px-2 ring-indigo-400 focus:ring-sky-600 focus:outline-none"
                         placeholder="프로젝트 제목"
                         name="projTitle"
                         value={projectForm.projTitle}
@@ -86,9 +87,10 @@ export default function ProjectEditForm({
                         required
                     />
                 </div>
-                <div className="projectAddDetail">
+                <div className="mb-2 rounded-lg bg-white">
                     <input
                         type="text"
+                        className="bg-transparent h-6 w-full rounded-lg text-black-500 ring-2 px-2 ring-indigo-400 focus:ring-sky-600 focus:outline-none"
                         placeholder="프로젝트 내용"
                         name="projDetail"
                         value={projectForm.projDetail}
@@ -96,26 +98,28 @@ export default function ProjectEditForm({
                         required
                     />
                 </div>
-                <div className="projectEditFromDate">
+                <div className="mb-2 rounded-lg bg-white">
                     <DatePicker
+                    className="bg-transparent h-6 w-full rounded-lg text-black-500 ring-2 px-2 ring-indigo-400 focus:ring-sky-600 focus:outline-none"
                         selected={projectForm.fromDate}
                         onChange={(date: Date) =>
                             onDateChange(date, "fromDate")
                         }
                     />
                 </div>
-                <div className="projectEditToDate">
+                <div className="mb-2 rounded-lg bg-white">
                     <DatePicker
+                    className="bg-transparent h-6 w-full rounded-lg text-black-500 ring-2 px-2 ring-indigo-400 focus:ring-sky-600 focus:outline-none"
                         selected={projectForm.toDate}
                         onChange={(date: Date) => onDateChange(date, "toDate")}
                     />
                 </div>
-                <div className="projectEdit__btn__block">
-                    <button className="projectEdit__btn" type="submit">
+                <div className="flex space-x-3 mt-1">
+                    <button className="bg-blue-400 hover:bg-blue-500 text-white font-medium py-1 px-3 rounded-full" type="submit">
                         확인
                     </button>
                     <button
-                        className="projectEdit__btn__cancel"
+                        className="bg-red-300 hover:bg-red-400 text-white font-medium py-1 px-3 rounded-full"
                         onClick={(e) => {
                             e.preventDefault();
                             setIsEdit((prev) => !prev);

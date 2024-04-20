@@ -2,19 +2,12 @@ import {del} from "api/index";
 import {AxiosError} from "axios";
 import {toast} from "react-toastify";
 
-interface AwardCardProps {
-    award: AwardContentsProps;
-    setAwards: React.Dispatch<React.SetStateAction<AwardContentsProps[]>>;
-    setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
-    isEditable: boolean;
-}
-
 export default function AwardCard({
     award,
     setAwards,
     setIsEdit,
     isEditable,
-}: AwardCardProps) {
+}: Omit<AwardDetailProps, "userId" | "setIsAdd">) {
     const handleDelete = async () => {
         if (window.confirm("삭제하시겠습니까?")) {
             try {

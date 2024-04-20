@@ -15,7 +15,7 @@ export function Portfolio() {
 
     const userState = useContext(UserStateContext);
 
-    const [userInfo, setUserInfo] = useState<UserProps>({});
+    const [userInfo, setUserInfo] = useState<Partial<UserProps>>({});
     const [isFetched, setIsFetched] = useState<boolean>(false);
 
     const fetchedUser = async (ownerId: string) => {

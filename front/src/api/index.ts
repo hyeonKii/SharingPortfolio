@@ -21,12 +21,12 @@ const get = async (endpoint: string, params = "") => {
     return data;
 };
 
-const post = async (endpoint: string, userData: UserProps) => {
+const post = async (endpoint: string, userData: Partial<UserProps>) => {
     const {data} = await API.post(endpoint, userData);
     return data;
 };
 
-const put = async (endpoint: string, userData: UserProps) => {
+const put = async (endpoint: string, userData: Partial<UserProps>) => {
     const {data} = await API.put(endpoint, userData);
     return data;
 };
