@@ -10,11 +10,11 @@
 
 @layer components {
     .signForm__wrap {
-        @apply flex flex-col min-h-dvh justify-center items-center
+        @apply flex flex-col min-h-dvh justify-center items-center;
     }
 
     .signForm__block {
-        @apply w-[450px] min-w-96 bg-transparent backdrop-blur-3xl rounded-xl shadow-2xl
+        @apply w-[450px] min-w-96 bg-transparent backdrop-blur-3xl rounded-xl shadow-2xl;
     }
 
     .signForm__label {
@@ -22,7 +22,7 @@
     }
 
     .signForm__input {
-        @apply block w-4/5 p-2.5 mx-auto bg-gray-50 text-gray-900 sm:text-sm border border-gray-300 rounded-lg
+        @apply block w-4/5 p-2.5 mx-auto bg-gray-50 text-gray-900 sm:text-sm border border-gray-300 rounded-lg;
     }
 
     .signForm__submitBtn {
@@ -30,15 +30,19 @@
     }
 
     .addEditForm__input {
-        @apply bg-transparent h-6 w-full rounded-lg ring-2 px-2 text-black ring-indigo-400 focus:ring-sky-600 focus:outline-none
+        @apply bg-transparent h-6 w-full rounded-lg ring-2 px-2 text-black ring-indigo-400 focus:ring-sky-600 focus:outline-none;
     }
 
     .addEditForm__submit-btn {
-        @apply bg-primary-600 hover:bg-primary-800 text-white font-medium py-0.5 px-2 rounded-lg
+        @apply bg-primary-600 hover:bg-primary-800 text-white font-medium py-0.5 px-2 rounded-lg;
     }
 
     .addEditForm__cancel-btn {
-        @apply bg-red-600 hover:bg-red-800 text-white font-medium py-0.5 px-2 rounded-lg
+        @apply bg-red-600 hover:bg-red-800 text-white font-medium py-0.5 px-2 rounded-lg;
+    }
+
+    .cards__title {
+        @apply w-24 h-8 mx-auto pt-0.5 bg-primary-600 rounded-lg text-lg text-white font-bold text-center;
     }
 }
 

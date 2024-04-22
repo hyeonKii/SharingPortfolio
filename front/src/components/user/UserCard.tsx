@@ -35,7 +35,7 @@ export default function UserCard({
                     <FaRegUserCircle className="w-28 h-28" />
                 )}
 
-                <div className="mt-5 mb-1 text-xl text-indigo-600 font-bold">
+                <div className="mt-5 mb-1 text-xl text-primary-600 font-bold">
                     {user?.name}
                 </div>
                 <div className="mb-1 text-sm font-medium text-gray-700">
@@ -48,7 +48,7 @@ export default function UserCard({
                     <div>
                         <button
                             type="button"
-                            className="w-20 mt-7 my-auto p-2 text-sm text-white font-medium rounded-lg bg-blue-500 hover:bg-blue-700 "
+                            className="w-20 mt-7 my-auto p-2 text-sm text-white font-medium rounded-lg bg-blue-600 hover:bg-blue-800 "
                             onClick={() => setIsEdit((prev) => !prev)}
                         >
                             <span>
