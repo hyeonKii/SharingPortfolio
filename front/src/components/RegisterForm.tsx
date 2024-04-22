@@ -98,18 +98,15 @@ export function RegisterForm() {
     return (
         <div
             id="register__wrap"
-            className="flex flex-col min-h-dvh justify-center items-center"
+            className="signForm__wrap"
         >
-            <h1 id="main__title" className="text-3xl text-white mb-5">
-                sharing portfolio
-            </h1>
             <div
                 id="register__block"
-                className="w-[450px] min-w-96 bg-transparent backdrop-blur-3xl rounded-xl shadow-2xl"
+                className="signForm__block"
             >
                 <h2
                     id="form__title"
-                    className="text-2xl text-center font-bold text-gray-900 my-8"
+                    
                 >
                     회원가입
                 </h2>
@@ -117,7 +114,7 @@ export function RegisterForm() {
                     <div>
                         <label
                             htmlFor="userName"
-                            className="block mb-2 text-sm font-medium text-gray-900 ml-12"
+                            className="signForm__label"
                         >
                             이름{" "}
                             {nameError && nameError.length > 0 && (
@@ -130,7 +127,7 @@ export function RegisterForm() {
                             )}
                         </label>
                         <input
-                            className="block w-4/5 p-2.5 mx-auto bg-gray-50 text-gray-900 sm:text-sm border border-gray-300 rounded-lg"
+                            className="signForm__input"
                             type="text"
                             name="userName"
                             id="userName"
@@ -141,7 +138,7 @@ export function RegisterForm() {
                     <div>
                         <label
                             htmlFor="email"
-                            className="block mb-2 text-sm font-medium text-gray-900 ml-12"
+                            className="signForm__label"
                         >
                             이메일{" "}
                             {emailError && emailError.length > 0 && (
@@ -154,7 +151,7 @@ export function RegisterForm() {
                             )}
                         </label>
                         <input
-                            className="block w-4/5 p-2.5 mx-auto bg-gray-50 text-gray-900 sm:text-sm border border-gray-300 rounded-lg"
+                            className="signForm__input"
                             type="email"
                             name="email"
                             id="email"
@@ -165,7 +162,7 @@ export function RegisterForm() {
                     <div>
                         <label
                             htmlFor="password"
-                            className="block mb-2 text-sm font-medium text-gray-900 ml-12"
+                            className="signForm__label"
                         >
                             비밀번호{" "}
                             {pwError && pwError.length > 0 && (
@@ -178,7 +175,7 @@ export function RegisterForm() {
                             )}
                         </label>
                         <input
-                            className="block w-4/5 p-2.5 mx-auto bg-gray-50 text-gray-900 sm:text-sm border border-gray-300 rounded-lg"
+                            className="signForm__input"
                             type="password"
                             name="password"
                             id="password"
@@ -189,7 +186,7 @@ export function RegisterForm() {
                     <div>
                         <label
                             htmlFor="confirmPassword"
-                            className="block mb-2 text-sm font-medium text-gray-900 ml-12"
+                            className="signForm__label"
                         >
                             비밀번호 확인{" "}
                             {pwConfirmError && pwConfirmError.length > 0 && (
@@ -202,7 +199,7 @@ export function RegisterForm() {
                             )}
                         </label>
                         <input
-                            className="block w-4/5 p-2.5 mx-auto bg-gray-50 text-gray-900 sm:text-sm border border-gray-300 rounded-lg"
+                            className="signForm__input"
                             type="password"
                             name="confirmPassword"
                             id="confirmPassword"
@@ -225,7 +222,7 @@ export function RegisterForm() {
                             type="submit"
                             value="회원가입"
                             id="form__btn-submit"
-                            className="w-4/5 px-5 py-2.5 mb-7 text-sm text-white text-center font-medium bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-lg"
+                            className="signForm__submitBtn"
                             disabled={pwConfirmError?.length > 0}
                         >
                             회원가입

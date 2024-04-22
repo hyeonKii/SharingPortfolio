@@ -70,12 +70,11 @@ export function LoginForm() {
     return (
         <div
             id="login__wrap"
-            className="flex flex-col min-h-dvh justify-center items-center"
+            className="signForm__wrap"
         >
-            <h1 id="main__title" className="text-3xl text-white mb-5">sharing portfolio</h1>
             <div
                 id="login__block"
-                className="w-[450px] min-w-96 bg-transparent backdrop-blur-3xl rounded-xl shadow-2xl"
+                className="signForm__block"
             >
                 <h2
                     id="form__title"
@@ -90,12 +89,12 @@ export function LoginForm() {
                     <div>
                         <label
                             htmlFor="email"
-                            className="block mb-2 text-sm font-medium text-gray-900 ml-12"
+                            className="signForm__label"
                         >
                             이메일 {emailError && emailError.length > 0 && (<span id="form__error" className="text-indigo-900">- {emailError}</span>)}
                         </label>
                         <input
-                            className="block w-4/5 p-2.5 mx-auto bg-gray-50 text-gray-900 sm:text-sm border border-gray-300 rounded-lg"
+                            className="signForm__input"
                             type="email"
                             name="email"
                             id="email"
@@ -107,12 +106,12 @@ export function LoginForm() {
                     <div>
                         <label
                             htmlFor="password"
-                            className="block mb-2 text-sm font-medium text-gray-900 ml-12"
+                            className="signForm__label"
                         >
                             비밀번호 {pwError && pwError.length > 0 && (<span id="form__error" className="text-indigo-900">- {pwError}</span>)}
                         </label>
                         <input
-                            className="block w-4/5 p-2.5 mx-auto bg-gray-50 text-gray-900 sm:text-sm border border-gray-300 rounded-lg"
+                            className="signForm__input"
                             type="password"
                             name="password"
                             id="password"
@@ -137,7 +136,7 @@ export function LoginForm() {
                         <button
                             type="submit"
                             id="form__btn__submit"
-                            className="w-4/5 px-5 py-2.5 mb-7 text-sm text-white text-center font-medium bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-lg"
+                            className="signForm__submitBtn"
                         >
                             로그인
                         </button>

@@ -29,13 +29,13 @@ export default function EducationCard({
     return (
         <div className="flex items-center w-[260px] min-w-[250px] mt-3 p-1 mx-auto bg-indigo-100 rounded-lg shadow-xl">
             <div className="flex-col w-[150px] min-w-[150px] text-sm px-1">
-                <div className="text-indigo-500 font-medium">
+                <div className="text-primary-700 font-medium">
                     학교: {edu.school}
                 </div>
-                <div className="text-indigo-500 font-medium">
+                <div className="text-primary-700 font-medium">
                     전공: {edu.major}
                 </div>
-                <div className="text-indigo-500 font-medium">
+                <div className="text-primary-700 font-medium">
                     졸업구분: {edu.degree}
                 </div>
             </div>
@@ -44,7 +44,7 @@ export default function EducationCard({
                 <div className="flex-col min-w-[80px] space-y-1 pl-12">
                     <div>
                         <button
-                            className="bg-blue-400 hover:bg-blue-500 text-white font-medium py-0.5 px-2 rounded-lg"
+                            className="addEditForm__submit-btn"
                             onClick={() => setIsEdit((prev) => !prev)}
                         >
                             편집
@@ -52,7 +52,7 @@ export default function EducationCard({
                     </div>
                     <div>
                         <button
-                            className="bg-red-300 hover:bg-red-400 text-white font-medium py-0.5 px-2 rounded-lg"
+                            className="addEditForm__cancel-btn"
                             onClick={handleDelete}
                         >
                             삭제

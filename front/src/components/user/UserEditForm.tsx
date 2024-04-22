@@ -80,17 +80,34 @@ export default function UserEditForm({
                 onSubmit={handleSubmit}
             >
                 {previewImg ? (
-                    <img
-                        className="w-28 h-28 rounded-full"
-                        src={`${previewImg}`}
-                        alt="사용자 업로드 프로필 이미지"
-                    />
+                    <picture>
+                        <source srcSet={`${previewImg}`} type="image/webp" />
+                        <img
+                            loading="lazy"
+                            decoding="async"
+                            className="w-28 h-28 rounded-full"
+                            src={`${previewImg}`}
+                            alt="사용자 업로드 프로필 이미지"
+                        />
+                    </picture>
                 ) : (
-                    <img
-                        className="w-28 h-28 rounded-full"
-                        src={`${import.meta.env.VITE_BASE_URL}${user?.profileImageFilename}`}
-                        alt="사용자 등록 프로필 이미지"
-                    />
+                    <picture>
+                        <source
+                            srcSet={`${import.meta.env.VITE_BASE_URL}${
+                                user?.profileImageFilename
+                            }`}
+                            type="image/webp"
+                        />
+                        <img
+                            loading="lazy"
+                            decoding="async"
+                            className="w-28 h-28 rounded-full"
+                            src={`${import.meta.env.VITE_BASE_URL}${
+                                user?.profileImageFilename
+                            }`}
+                            alt="사용자 등록 프로필 이미지"
+                        />
+                    </picture>
                 )}
                 <label id="upload_label" className="flex mx-auto">
                     <input

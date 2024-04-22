@@ -14,13 +14,23 @@ export default function UserCard({
         <>
             <div className="flex flex-col items-center mt-5">
                 {user?.profileImageFilename ? (
-                    <img
-                        className="w-28 h-28 rounded-full"
-                        src={`${import.meta.env.VITE_BASE_URL}${
-                            user?.profileImageFilename
-                        }`}
-                        alt="사용자 등록 프로필 이미지"
-                    />
+                    <picture>
+                        <source
+                            srcSet={`${import.meta.env.VITE_BASE_URL}${
+                                user?.profileImageFilename
+                            }`}
+                            type="image/webp"
+                        />
+                        {user?.profileImageFilename && (
+                            <img
+                                className="w-28 h-28 rounded-full"
+                                src={`${import.meta.env.VITE_BASE_URL}${
+                                    user?.profileImageFilename
+                                }`}
+                                alt="사용자 등록 프로필 이미지"
+                            />
+                        )}
+                    </picture>
                 ) : (
                     <FaRegUserCircle className="w-28 h-28" />
                 )}

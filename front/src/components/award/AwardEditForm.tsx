@@ -63,7 +63,7 @@ export default function AwardEditForm({
                 <div className="mb-2 rounded-lg bg-white">
                     <input
                         type="text"
-                        className="bg-transparent h-6 w-full rounded-lg text-black-500 ring-2 px-2 ring-indigo-400 focus:ring-sky-600 focus:outline-none"
+                        className="addEditForm__input"
                         placeholder="수상내역"
                         name="awardTitle"
                         value={awardForm.awardTitle}
@@ -74,7 +74,7 @@ export default function AwardEditForm({
                 <div className="mb-2 rounded-lg bg-white">
                     <input
                         type="text"
-                        className="bg-transparent h-6 w-full rounded-lg text-black-500 ring-2 px-2 ring-indigo-400 focus:ring-sky-600 focus:outline-none"
+                        className="addEditForm__input"
                         placeholder="상세내용"
                         name="awardDetail"
                         value={awardForm.awardDetail}
@@ -85,13 +85,13 @@ export default function AwardEditForm({
 
                 <div className="flex space-x-3 mt-1">
                     <button
-                        className="bg-blue-400 hover:bg-blue-500 text-white font-medium py-1 px-3 rounded-full"
+                        className="addEditForm__submit-btn"
                         type="submit"
                     >
                         확인
                     </button>
                     <button
-                        className="bg-red-300 hover:bg-red-400 text-white font-medium py-1 px-3 rounded-full"
+                        className="addEditForm__cancel-btn"
                         onClick={(e) => {
                             e.preventDefault();
                             setIsEdit((prev) => !prev);
