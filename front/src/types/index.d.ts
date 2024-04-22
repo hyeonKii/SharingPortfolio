@@ -10,13 +10,15 @@ interface UserProps {
     profileImageFilename: string;
 }
 
+type UserState = Partial<UserProps> | null;
+
 interface IUserState {
-    user: Partial<UserProps> | null;
+    user: UserState;
 }
 
 interface IAction {
     type: string;
-    payload: Partial<UserProps> | null;
+    payload: UserState;
 }
 
 interface OwnerProps {
@@ -25,8 +27,8 @@ interface OwnerProps {
 }
 
 interface UserDetailProps {
-    user: Partial<UserProps> | null;
-    setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
+    user: UserState;
+    setIsEdit: React.Dispatch<React.SetStateAction<boolean>>
     setUser: React.Dispatch<React.SetStateAction<Partial<UserProps>>>;
     isEditable: boolean;
 }
@@ -46,16 +48,19 @@ interface AwardDetailProps {
     isEditable: boolean;
 }
 
-interface EducationContentsProps {
+interface EduContentsProps {
     eduId?: string;
     school: string;
     major: string;
     degree: string;
 }
 
-interface EducationProps {
+interface EduDetailProps {
+    userId: string;
     edu: EducationContentsProps;
     setEdu: React.Dispatch<React.SetStateAction<EducationContentsProps[]>>;
+    setIsAdd: Dispatch<SetStateAction<boolean>>;
+    setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
     isEditable: boolean;
 }
 
@@ -66,9 +71,12 @@ interface CertiContentsProps {
     certiDate: string;
 }
 
-interface CertificationProps {
+interface CertiDetailProps {
+    userId: string;
     certificate: CertiContentsProps;
     setCertificates: React.Dispatch<React.SetStateAction<CertiContentsProps[]>>;
+    setIsAdd: Dispatch<SetStateAction<boolean>>;
+    setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
     isEditable: boolean;
 }
 
@@ -80,8 +88,11 @@ interface ProjectContentsProps {
     toDate: string;
 }
 
-interface ProjectProps {
+interface ProjectDetailProps {
+    userId: string;
     project: ProjectContentsProps;
     setProjects: React.Dispatch<React.SetStateAction<ProjectContentsProps[]>>;
+    setIsAdd: Dispatch<SetStateAction<boolean>>;
+    setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
     isEditable: boolean;
 }

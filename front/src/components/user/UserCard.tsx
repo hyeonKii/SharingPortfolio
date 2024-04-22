@@ -1,23 +1,30 @@
 import {UserStateContext} from "context/AuthContext";
 import {useContext} from "react";
 import {Link} from "react-router-dom";
-import {FaUserEdit} from "react-icons/fa";
+import {FaUserEdit, FaRegUserCircle} from "react-icons/fa";
 
-export default function UserCard({user, setIsEdit, isEditable}: Partial<UserDetailProps>) {
+export default function UserCard({
+    user,
+    setIsEdit,
+    isEditable,
+}: Pick<UserDetailProps, "user" | "setIsEdit" | "isEditable">) {
     const userState = useContext(UserStateContext);
-
-    const completedEdit = setIsEdit as React.Dispatch<
-        React.SetStateAction<boolean>
-    >;
 
     return (
         <>
             <div className="flex flex-col items-center mt-5">
-                <img
-                    className="w-28 h-28 rounded-full"
-                    src={`${import.meta.env.VITE_BASE_URL}/${user?.profileImageFilename}`}
-                    alt="사용자 등록 프로필 이미지"
-                />
+                {user?.profileImageFilename ? (
+                    <img
+                        className="w-28 h-28 rounded-full"
+                        src={`${import.meta.env.VITE_BASE_URL}${
+                            user?.profileImageFilename
+                        }`}
+                        alt="사용자 등록 프로필 이미지"
+                    />
+                ) : (
+                    <FaRegUserCircle className="w-28 h-28" />
+                )}
+
                 <div className="mt-5 mb-1 text-xl text-indigo-600 font-bold">
                     {user?.name}
                 </div>
@@ -30,19 +37,20 @@ export default function UserCard({user, setIsEdit, isEditable}: Partial<UserDeta
                 {isEditable && (
                     <div>
                         <button
-                            className="mt-5 bg-blue-500 hover:bg-blue-700 text-white font-medium py-1 px-3 rounded-full"
-                            onClick={() => completedEdit(true)}
+                            type="button"
+                            className="w-20 mt-7 my-auto p-2 text-sm text-white font-medium rounded-lg bg-blue-500 hover:bg-blue-700 "
+                            onClick={() => setIsEdit((prev) => !prev)}
                         >
-                            {/* 편집 */}
-                            <FaUserEdit className="w-5 h-5 mx-1 text-center" />
+                            <span>
+                                <FaUserEdit className="inline w-5 h-5 mx-1" />
+                                편집
+                            </span>
                         </button>
                     </div>
                 )}
                 {user?.id !== userState?.user?.id && (
                     <div className="my-2 text-xs text-blue-700 underline">
-                        <Link to={`/users/${user?.id}`}>
-                            포트폴리오 탐색
-                        </Link>
+                        <Link to={`/users/${user?.id}`}>포트폴리오 탐색</Link>
                     </div>
                 )}
             </div>

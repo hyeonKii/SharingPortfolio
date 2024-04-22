@@ -4,17 +4,11 @@ import {useState} from "react";
 import DatePicker from "react-datepicker";
 import {toast} from "react-toastify";
 
-interface ProjectFixProps {
-    project: ProjectContentsProps;
-    setProjects: React.Dispatch<React.SetStateAction<ProjectContentsProps[]>>;
-    setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
 export default function ProjectEditForm({
     project,
     setProjects,
     setIsEdit,
-}: ProjectFixProps) {
+}: Pick<ProjectDetailProps, "project" | "setProjects" | "setIsEdit">) {
     const [projectForm, setProjectForm] = useState({
         projId: project.projId,
         projTitle: project.projTitle,
@@ -75,7 +69,10 @@ export default function ProjectEditForm({
 
     return (
         <>
-            <form className="flex flex-col items-center mt-5" onSubmit={handleSubmit}>
+            <form
+                className="flex flex-col items-center mt-5"
+                onSubmit={handleSubmit}
+            >
                 <div className="mb-2 rounded-lg bg-white">
                     <input
                         type="text"
@@ -100,7 +97,7 @@ export default function ProjectEditForm({
                 </div>
                 <div className="mb-2 rounded-lg bg-white">
                     <DatePicker
-                    className="bg-transparent h-6 w-full rounded-lg text-black-500 ring-2 px-2 ring-indigo-400 focus:ring-sky-600 focus:outline-none"
+                        className="bg-transparent h-6 w-full rounded-lg text-black-500 ring-2 px-2 ring-indigo-400 focus:ring-sky-600 focus:outline-none"
                         selected={projectForm.fromDate}
                         onChange={(date: Date) =>
                             onDateChange(date, "fromDate")
@@ -109,13 +106,16 @@ export default function ProjectEditForm({
                 </div>
                 <div className="mb-2 rounded-lg bg-white">
                     <DatePicker
-                    className="bg-transparent h-6 w-full rounded-lg text-black-500 ring-2 px-2 ring-indigo-400 focus:ring-sky-600 focus:outline-none"
+                        className="bg-transparent h-6 w-full rounded-lg text-black-500 ring-2 px-2 ring-indigo-400 focus:ring-sky-600 focus:outline-none"
                         selected={projectForm.toDate}
                         onChange={(date: Date) => onDateChange(date, "toDate")}
                     />
                 </div>
                 <div className="flex space-x-3 mt-1">
-                    <button className="bg-blue-400 hover:bg-blue-500 text-white font-medium py-1 px-3 rounded-full" type="submit">
+                    <button
+                        className="bg-blue-400 hover:bg-blue-500 text-white font-medium py-1 px-3 rounded-full"
+                        type="submit"
+                    >
                         확인
                     </button>
                     <button

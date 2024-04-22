@@ -4,10 +4,8 @@ import Education from "./Education";
 import EducationAddForm from "./EducationAddForm";
 
 export default function Educations({userId, isEditable}: OwnerProps) {
-    const [educations, setEducations] = useState<EducationContentsProps[]>([]);
+    const [educations, setEducations] = useState<EduContentsProps[]>([]);
     const [isAdd, setIsAdd] = useState(false);
-
-    
 
     useEffect(() => {
         get("edu", userId).then((educationList) => {

@@ -3,17 +3,12 @@ import {AxiosError} from "axios";
 import {useState} from "react";
 import DatePicker from "react-datepicker";
 import {toast} from "react-toastify";
-interface CertiFixProps {
-    certificate: CertiContentsProps;
-    setCertificates: React.Dispatch<React.SetStateAction<CertiContentsProps[]>>;
-    setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
-}
 
 export default function CertiEditForm({
     certificate,
     setCertificates,
     setIsEdit,
-}: CertiFixProps) {
+}: Pick<CertiDetailProps, "certificate" | "setCertificates" | "setIsEdit">) {
     const [certiForm, setCertiForm] = useState({
         certiId: certificate.certiId,
         certiTitle: certificate.certiTitle,

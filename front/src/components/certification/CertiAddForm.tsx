@@ -1,20 +1,14 @@
 import {post} from "api/index";
 import {AxiosError} from "axios";
-import {Dispatch, SetStateAction, useState} from "react";
+import {useState} from "react";
 import DatePicker from "react-datepicker";
 import {toast} from "react-toastify";
-
-interface CertiAddProps {
-    userId: string;
-    setCertificates: React.Dispatch<React.SetStateAction<CertiContentsProps[]>>;
-    setIsAdd: Dispatch<SetStateAction<boolean>>;
-}
 
 export default function CertiAddForm({
     userId,
     setCertificates,
     setIsAdd,
-}: CertiAddProps) {
+}: Pick<CertiDetailProps, "userId" | "setCertificates" | "setIsAdd">) {
     const [certiForm, setCertiForm] = useState({
         certiTitle: "",
         certiDetail: "",
@@ -49,7 +43,7 @@ export default function CertiAddForm({
                 ...certiForm,
             });
             setCertificates((prev) => [...prev, res]);
-            setIsAdd((prev) => !prev);
+            setIsAdd((prev: boolean) => !prev);
         } catch (e) {
             if (e instanceof AxiosError) {
                 toast.error(e.message);
@@ -104,7 +98,7 @@ export default function CertiAddForm({
                         className="bg-red-300 hover:bg-red-400 text-white font-medium py-1 px-3 rounded-full"
                         onClick={(e) => {
                             e.preventDefault();
-                            setIsAdd((prev) => !prev);
+                            setIsAdd((prev: boolean) => !prev);
                         }}
                     >
                         취소

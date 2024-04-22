@@ -6,7 +6,7 @@ export default function Certification({
     certificate,
     setCertificates,
     isEditable,
-}: CertificationProps) {
+}: Pick<CertiDetailProps, "certificate" | "setCertificates" | "isEditable">) {
     const [isEdit, setIsEdit] = useState(false);
 
     const toggleEdit = () => {

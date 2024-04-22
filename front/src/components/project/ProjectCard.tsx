@@ -2,19 +2,12 @@ import {del} from "api/index";
 import {AxiosError} from "axios";
 import {toast} from "react-toastify";
 
-interface ProjectCardProps {
-    project: ProjectContentsProps;
-    setProjects: React.Dispatch<React.SetStateAction<ProjectContentsProps[]>>;
-    setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
-    isEditable: boolean;
-}
-
 export default function ProjectCard({
     project,
     setProjects,
     setIsEdit,
     isEditable,
-}: ProjectCardProps) {
+}: Omit<ProjectDetailProps, "userId" | "setIsAdd">) {
     const handleDelete = async () => {
         if (window.confirm("삭제하시겠습니까?")) {
             try {

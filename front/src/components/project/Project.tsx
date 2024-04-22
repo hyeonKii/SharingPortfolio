@@ -6,7 +6,7 @@ export default function Project({
     project,
     setProjects,
     isEditable,
-}: ProjectProps) {
+}: Pick<ProjectDetailProps, "project" | "setProjects" | "isEditable">) {
     const [isEdit, setIsEdit] = useState(false);
 
     const toggleEdit = () => {

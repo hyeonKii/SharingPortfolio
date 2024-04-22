@@ -2,19 +2,12 @@ import {del} from "api/index";
 import {AxiosError} from "axios";
 import {toast} from "react-toastify";
 
-interface CertiCardProps {
-    certificate: CertiContentsProps;
-    setCertificates: React.Dispatch<React.SetStateAction<CertiContentsProps[]>>;
-    setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
-    isEditable: boolean;
-}
-
 export default function CertiCard({
     certificate,
     setCertificates,
     setIsEdit,
     isEditable,
-}: CertiCardProps) {
+}: Omit<CertiDetailProps, "userId" | "setIsAdd">) {
     const handleDelete = async () => {
         if (window.confirm("삭제하시겠습니까?")) {
             try {

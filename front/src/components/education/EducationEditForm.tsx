@@ -3,17 +3,11 @@ import {AxiosError} from "axios";
 import {useState} from "react";
 import {toast} from "react-toastify";
 
-interface EducationFixProps {
-    edu: EducationContentsProps;
-    setEdu: React.Dispatch<React.SetStateAction<EducationContentsProps[]>>;
-    setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
 export default function EducationEditForm({
     edu,
     setEdu,
     setIsEdit,
-}: EducationFixProps) {
+}: Pick<EduDetailProps, "edu" | "setEdu" | "setIsEdit">) {
     const [educationForm, setEducationForm] = useState({
         eduId: edu.eduId,
         school: edu.school,
@@ -98,7 +92,10 @@ export default function EducationEditForm({
                     />
                 </div>
                 <div className="mb-2 rounded-lg bg-white">
-                    <select onChange={onSelectChange} className="w-full h-6 rounded-lg ring-2 px-3 mr-16 ring-indigo-400 focus:ring-sky-600 focus:outline-none">
+                    <select
+                        onChange={onSelectChange}
+                        className="w-full h-6 rounded-lg ring-2 px-3 mr-16 ring-indigo-400 focus:ring-sky-600 focus:outline-none"
+                    >
                         <option value="재학중">재학중</option>
                         <option value="학사졸업">학사졸업</option>
                         <option value="석사졸업">석사졸업</option>

@@ -1,20 +1,14 @@
 import {post} from "api/index";
 import {AxiosError} from "axios";
-import {Dispatch, SetStateAction, useState} from "react";
+import {useState} from "react";
 import DatePicker from "react-datepicker";
 import {toast} from "react-toastify";
-
-interface ProjectAddProps {
-    userId: string;
-    setProjects: React.Dispatch<React.SetStateAction<ProjectContentsProps[]>>;
-    setIsAdd: Dispatch<SetStateAction<boolean>>;
-}
 
 export default function ProjectAddForm({
     userId,
     setProjects,
     setIsAdd,
-}: ProjectAddProps) {
+}: Pick<ProjectDetailProps, "userId" | "setProjects" | "setIsAdd">) {
     const [projectForm, setProjectForm] = useState({
         projTitle: "",
         projDetail: "",
@@ -51,7 +45,7 @@ export default function ProjectAddForm({
                 ...projectForm,
             });
             setProjects((prev) => [...prev, res]);
-            setIsAdd((prev) => !prev);
+            setIsAdd((prev: boolean) => !prev);
         } catch (e) {
             if (e instanceof AxiosError) {
                 toast.error(e.message);
@@ -114,7 +108,7 @@ export default function ProjectAddForm({
                         className="bg-red-300 hover:bg-red-400 text-white font-medium py-1 px-3 rounded-full"
                         onClick={(e) => {
                             e.preventDefault();
-                            setIsAdd((prev) => !prev);
+                            setIsAdd((prev: boolean) => !prev);
                         }}
                     >
                         취소

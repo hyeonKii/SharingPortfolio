@@ -2,19 +2,12 @@ import {del} from "api/index";
 import {AxiosError} from "axios";
 import {toast} from "react-toastify";
 
-interface EduCardProps {
-    edu: EducationContentsProps;
-    setEdu: React.Dispatch<React.SetStateAction<EducationContentsProps[]>>;
-    setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
-    isEditable: boolean;
-}
-
 export default function EducationCard({
     edu,
     setEdu,
     setIsEdit,
     isEditable,
-}: EduCardProps) {
+}: Omit<EduDetailProps, "userId" | "setIsAdd">) {
     const handleDelete = async () => {
         if (window.confirm("삭제하시겠습니까?")) {
             try {

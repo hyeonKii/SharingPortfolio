@@ -31,7 +31,8 @@ export function Header() {
 
                 <div className="menuToggle">
                     {/* 트리거 */}
-                    <input type="checkbox"/>
+                    <label htmlFor="menuToggle" />
+                    <input type="checkbox" id="menuToggle" />
 
                     {/* 네비게이션 바 모양 */}
                     <span></span>
@@ -39,16 +40,18 @@ export function Header() {
                     <span></span>
 
                     <ul className="menu">
-                        <Link to="/">
-                            <li>My Portfolio</li>
-                        </Link>
-                        <Link to="/network">
-                            <li>Networking</li>
-                        </Link>
+                        <li>
+                            <Link to="/">My Portfolio</Link>
+                        </li>
+
+                        <li>
+                            <Link to="/network">Networking</Link>
+                        </li>
+
                         {isLogin && (
-                            <a>
-                                <li onClick={logout}>Log Out</li>
-                            </a>
+                            <li>
+                                <a onClick={logout}>Log Out</a>
+                            </li>
                         )}
                     </ul>
                 </div>

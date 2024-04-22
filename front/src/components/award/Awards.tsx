@@ -23,7 +23,7 @@ export default function Awards({userId, isEditable}: OwnerProps) {
                     <div>
                         <button
                             className="w-8 h-8 pb-0.5 border border-2 border-blue-500 rounded-lg text-blue-500 font-bold"
-                            onClick={() => setIsAdd(true)}
+                            onClick={() => setIsAdd((prev) => !prev)}
                         >
                             +
                         </button>
