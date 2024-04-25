@@ -1,4 +1,4 @@
-import {DispatchContext, UserStateContext} from "context/AuthContext";
+import { UserStateContext} from "context/AuthContext";
 import {useContext} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
@@ -6,10 +6,9 @@ import {toast} from "react-toastify";
 export function Header() {
     const navigate = useNavigate();
 
-    const userState = useContext(UserStateContext);
-    const dispatch = useContext(DispatchContext);
+    const {user, dispatch} = useContext(UserStateContext);
 
-    const isLogin = !!userState?.user;
+    const isLogin = !!user;
 
     const logout = () => {
         sessionStorage.removeItem("userToken");

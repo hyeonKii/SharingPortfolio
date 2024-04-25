@@ -7,8 +7,15 @@ interface AuthProps {
     children: ReactNode;
 }
 
-export const UserStateContext = createContext<IUserState>({user: null});
-export const DispatchContext = createContext<Dispatch<IAction>>(() => {});
+interface ContextValue {
+    user: UserState;
+    dispatch: Dispatch<IAction>;
+}
+
+export const UserStateContext = createContext<ContextValue>({
+    user: null,
+    dispatch: () => {},
+});
 
 export const AuthContextProvider = ({children}: AuthProps) => {
     const [userState, dispatch] = useReducer(loginReducer, {user: null});
@@ -18,7 +25,7 @@ export const AuthContextProvider = ({children}: AuthProps) => {
         if (!sessionStorage.getItem("userToken")) {
             return dispatch({
                 type: "default",
-                payload: null
+                payload: null,
             });
         }
 
@@ -42,11 +49,9 @@ export const AuthContextProvider = ({children}: AuthProps) => {
 
     return (
         <>
-            <DispatchContext.Provider value={dispatch}>
-                <UserStateContext.Provider value={userState}>
-                    {children}
-                </UserStateContext.Provider>
-            </DispatchContext.Provider>
+            <UserStateContext.Provider value={{user: userState.user, dispatch}}>
+                {children}
+            </UserStateContext.Provider>
         </>
     );
 };

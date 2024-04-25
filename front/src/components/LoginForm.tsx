@@ -1,14 +1,15 @@
 import {post} from "api";
 import {AxiosError} from "axios";
-import {DispatchContext} from "context/AuthContext";
+// import {DispatchContext} from "context/AuthContext";
 import {useState, useContext} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 import { useValid } from "./utils/valid";
+import { UserStateContext } from "context/AuthContext";
 
 export function LoginForm() {
     const navigate = useNavigate();
-    const dispatch = useContext(DispatchContext);
+    const dispatch = useContext(UserStateContext).dispatch;
 
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
