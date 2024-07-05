@@ -1,14 +1,13 @@
 <h2>포트폴리오 공유 서비스 리팩토링 프로젝트</h2>
 
 ## 리팩토링 요약
-1. 기존 코드량 500MB를 200MB로 절감
-2. 빌드도구 Vite로 전환
-3. Javascript에서 Typescript로 마이그레이션
-4. bootstrap에서 taildwindCSS로 전환하여 css에 대한 효율적 코드량 절감
-5. ContextAPI를 활용해 로그인 여부를 확인하여 Routing 설정
-6. re-rendering 시 Loader 적용
-7. 기존 상단 네비게이션 바를 햄버거 스타일로 전환하여 웹/앱 사용에 대한 확장성 고려
-8. useValid라는 커스텀 훅을 활용해 로그인 및 회원가입 유효성 검사
+- Javascript + CRA에서 Typescript + Vite로 마이그레이션
+- 300MB 이상 번들링 요소 감소
+- Bootstrap에서 TaildwindCSS로 전환하여 CSS 코드량 절감
+- ContextAPI를 활용해 로그인 여부를 확인하여 Routing 설정
+- re-rendering 시 Loader 적용하여 사용자 경험 개선
+- 상단 네비게이션 바를 모바일 형태에 적합한 스타일로 변환하여 웹 앱 사용에 대한 확장성 고려
+- 회원가입과 로그인 유효성 검사에 관해 useValid 커스텀 훅을 만들어 관리
 
 ## 기능
 
